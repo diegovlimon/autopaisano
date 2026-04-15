@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E&S Auto Paisano — Buy Here Pay Here | Nashville, TN</title>
+<meta name="description" content="E&S Auto Paisano en Nashville, Tennessee. Buy Here Pay Here. Financiamos a todos. Hablamos español. Carros con rebuilt title.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     VARIABLES — Auto Paisano: Blanco + Morado
+  ============================================ */
+  :root {
+    --primary: #5B3FFF;
+    --primary-dark: #4730CC;
+    --primary-light: #EDE8FF;
+    --bg: #FFFFFF;
+    --bg-gray: #F7F8FA;
+    --bg-dark: #0F0E17;
+    --text: #1A1A2E;
+    --text-muted: #6B7280;
+    --text-light: #9CA3AF;
+    --border: #E5E7EB;
+    --border-dark: #D1D5DB;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* ============================================
+     NAVBAR
+  ============================================ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 66px;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-icon svg { width: 22px; height: 22px; fill: #fff; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text span:first-child {
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text span:last-child {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--primary); }
+
+  .nav-cta {
+    background: var(--primary);
+    color: #fff !important;
+    padding: 9px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s, transform 0.1s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--primary-dark) !important;
+    transform: translateY(-1px);
+    color: #fff !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ============================================
+     HERO
+  ============================================ */
+  .hero {
+    min-height: 100vh;
+    padding-top: 66px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    flex: 1;
+    min-height: 480px;
+    overflow: hidden;
+  }
+
+  .hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+  }
+
+  .hero-text {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2.5rem 3rem;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(91,63,255,0.9);
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .hero h1 .purple { color: #C4B5FD; }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    letter-spacing: -0.1px;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(91,63,255,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  /* ============================================
+     SEARCH BAR
+  ============================================ */
+  .search-section {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 3rem;
+  }
+
+  .search-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .search-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    margin-right: 4px;
+  }
+
+  .search-bar select {
+    background: var(--bg-gray);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    padding: 10px 32px 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    flex: 1;
+    min-width: 130px;
+    transition: border-color 0.2s;
+  }
+
+  .search-bar select:focus { outline: none; border-color: var(--primary); }
+
+  .btn-search {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-search:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+  /* ============================================
+     STATS BAR
+  ============================================ */
+  .stats-bar {
+    background: var(--bg-gray);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 0.5rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ============================================
+     SECTIONS
+  ============================================ */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+
+  .section-title .purple { color: var(--primary); }
+
+  .see-all {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: gap 0.2s;
+  }
+
+  .see-all:hover { gap: 9px; }
+
+  /* ============================================
+     INVENTORY GRID
+  ============================================ */
+  .inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .car-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    box-shadow: var(--shadow);
+  }
+
+  .car-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(91,63,255,0.12);
+  }
+
+  .car-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg-gray);
+  }
+
+  .car-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .car-card:hover .car-img-wrap img { transform: scale(1.05); }
+
+  .car-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f0f5, #e8e8f0);
+    font-size: 48px;
+    color: var(--text-light);
+  }
+
+  .badge-wrap {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 3px 9px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .badge-bestseller { background: var(--primary); color: #fff; }
+  .badge-popular { background: #10B981; color: #fff; }
+  .badge-rebuilt { background: rgba(0,0,0,0.55); color: #fff; backdrop-filter: blur(4px); }
+  .badge-bhph { background: var(--primary-light); color: var(--primary); border: 1px solid rgba(91,63,255,0.2); }
+
+  .car-body { padding: 14px; }
+
+  .car-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+
+  .car-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .car-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border-dark); }
+
+  .car-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .car-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+  }
+
+  .car-weekly {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .btn-card-detail {
+    background: var(--primary-light);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-card-detail:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* ============================================
+     FIND BY MODEL
+  ============================================ */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+
+  .model-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+  }
+
+  .model-card:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    transform: translateY(-2px);
+  }
+
+  .model-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .model-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .model-count {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ============================================
+     FINANCING SECTION
+  ============================================ */
+  .financing-banner {
+    background: var(--bg-dark);
+    padding: 5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .financing-banner::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(91,63,255,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .financing-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .financing-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(91,63,255,0.15);
+    border: 1px solid rgba(91,63,255,0.3);
+    border-radius: 100px;
+    padding: 4px 14px;
+    margin-bottom: 1.25rem;
+  }
+
+  .financing-tag span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #C4B5FD;
+    letter-spacing: 0.3px;
+  }
+
+  .financing-title {
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .financing-title .purple { color: #C4B5FD; }
+
+  .financing-desc {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .financing-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .financing-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 10px;
+    color: #fff;
+  }
+
+  /* Payment calculator */
+  .calc-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .calc-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+
+  .calc-field { margin-bottom: 1.25rem; }
+
+  .calc-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-bottom: 7px;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .calc-input {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    padding: 11px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+
+  .calc-input:focus { outline: none; border-color: var(--primary); }
+  .calc-input option { background: #1f1f35; }
+
+  .calc-result {
+    background: rgba(91,63,255,0.15);
+    border: 1px solid rgba(91,63,255,0.3);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calc-result-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .calc-result-freq { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  .calc-result-amount {
+    font-size: 30px;
+    font-weight: 800;
+    color: #C4B5FD;
+    letter-spacing: -0.5px;
+  }
+
+  .btn-calc-apply {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--primary);
+    color: #fff;
+    padding: 13px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: 1.25rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-calc-apply:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+  /* ============================================
+     REVIEWS
+  ============================================ */
+  .reviews-section {
+    background: var(--bg-gray);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 3rem;
+  }
+
+  .reviews-inner { max-width: 1200px; margin: 0 auto; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 2rem;
+  }
+
+  .review-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.25s;
+  }
+
+  .review-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+  .review-stars {
+    color: #F59E0B;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .review-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .review-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .review-location {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  /* ============================================
+     REBUILT TITLE
+  ============================================ */
+  .rebuilt-section {
+    padding: 5rem 3rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rebuilt-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .rebuilt-tag {
+    display: inline-block;
+    background: var(--primary-light);
+    border: 1px solid rgba(91,63,255,0.2);
+    border-radius: 100px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.8px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .rebuilt-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+
+  .rebuilt-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .rebuilt-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .faq-item {
+    background: var(--bg-gray);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .faq-item:hover { border-color: var(--primary); }
+  .faq-item.open { border-color: var(--primary); background: var(--primary-light); }
+
+  .faq-q {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .faq-q span { color: var(--primary); font-size: 18px; flex-shrink: 0; transition: transform 0.2s; }
+
+  .faq-a {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    line-height: 1.6;
+    display: none;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
+
+  /* ============================================
+     CONTACT
+  ============================================ */
+  .contact-section {
+    background: var(--bg-gray);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 3rem;
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-block h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-block p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .contact-block a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+
+  .contact-block a:hover { color: var(--primary); }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 1.5rem;
+  }
+
+  .hours-row { font-size: 13px; color: var(--text-muted); }
+  .hours-row .day { font-weight: 600; color: var(--text); }
+
+  .btn-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: 1rem;
+    border: 1px solid rgba(91,63,255,0.2);
+  }
+
+  .btn-directions:hover { background: var(--primary); color: #fff; }
+
+  .map-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    height: 320px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  footer {
+    background: var(--bg-dark);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .footer-left {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  footer .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  footer .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+  .powered-by {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .powered-by a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .powered-by a:hover { color: #fff; }
+
+  .powered-by img { height: 16px; vertical-align: middle; opacity: 0.7; }
+
+  /* ============================================
+     FLOATING BUTTONS
+  ============================================ */
+  .float-buttons {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 90;
+  }
+
+  .btn-float {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  .btn-whatsapp { background: #25D366; color: #fff; }
+  .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+
+  .btn-chat { background: var(--primary); color: #fff; }
+  .btn-chat:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+  .float-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* ============================================
+     CHAT WIDGET
+  ============================================ */
+  .chat-widget {
+    position: fixed;
+    bottom: 8rem;
+    right: 1.5rem;
+    width: 340px;
+    max-height: 460px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    z-index: 91;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .chat-header {
+    background: var(--primary);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chat-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .chat-header-info { flex: 1; }
+  .chat-header-info h4 { font-size: 14px; font-weight: 700; color: #fff; }
+  .chat-header-info p { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 1px; }
+
+  .chat-header-close {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .chat-header-close:hover { background: rgba(255,255,255,0.3); }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chat-msg {
+    max-width: 85%;
+    padding: 10px 13px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .chat-msg.bot {
+    background: var(--bg-gray);
+    color: var(--text);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-msg.user {
+    background: var(--primary);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+
+  .typing-dots { display: flex; gap: 4px; padding: 4px 0; }
+  .typing-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); animation: bounce 1.2s infinite; }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+
+  .chat-input-wrap {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .chat-input {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--bg-gray);
+    transition: border-color 0.2s;
+  }
+
+  .chat-input:focus { outline: none; border-color: var(--primary); }
+
+  .chat-send {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .chat-send:hover { background: var(--primary-dark); }
+
+  /* ============================================
+     MOBILE
+  ============================================ */
+  @media (max-width: 1024px) {
+    .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+    .models-grid { grid-template-columns: repeat(3, 1fr); }
+    .financing-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .rebuilt-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-inner { grid-template-columns: 1fr 1fr; }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 3rem 2rem; }
+    .financing-banner { padding: 4rem 2rem; }
+    .rebuilt-section { padding: 4rem 2rem; }
+    .reviews-section { padding: 3rem 2rem; }
+    .contact-section { padding: 3rem 2rem; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; flex-direction: column; background: var(--bg); position: fixed; top: 66px; left: 0; right: 0; padding: 1rem; border-bottom: 1px solid var(--border); }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 10px 0; font-size: 15px; }
+    .hamburger { display: flex; }
+    .hero h1 { font-size: 28px; }
+    .hero-text { padding: 1.5rem; }
+    .inventory-grid { grid-template-columns: 1fr 1fr; }
+    .models-grid { grid-template-columns: repeat(3, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+    .search-section { padding: 1rem; }
+    .search-bar { flex-wrap: wrap; }
+    footer { flex-direction: column; text-align: center; padding: 1.5rem; }
+    .chat-widget { width: calc(100vw - 2rem); right: 1rem; bottom: 7rem; }
+  }
+
+  @media (max-width: 480px) {
+    .inventory-grid { grid-template-columns: 1fr; }
+    .models-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-img-wrap { min-height: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span>Auto Paisano</span>
+      <span>E&S · Nashville, TN</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="inventario.html">Inventario</a></li>
+    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#financing">Financiamiento</a></li>
+    <li><a href="tel:6152557700" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Llamar Ahora
+    </a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img src="images/hero-car.jpg" alt="E&S Auto Paisano — Nashville Tennessee" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)'">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-text">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Nashville, Tennessee · Abierto Hoy</span>
+      </div>
+      <h1>
+        Hablamos <span class="purple">Español.</span><br>
+        Te Financiamos.
+      </h1>
+      <p class="hero-sub">
+        Buy Here Pay Here. ¡Sin importar tu crédito! Enganche desde $500. 6 meses de garantía.
+      </p>
+      <div class="hero-buttons">
+        <a href="inventario.html" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Ver Inventario
+        </a>
+        <a href="#financing" class="btn-secondary">Calcular Pagos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEARCH ============ -->
+<div class="search-section">
+  <div class="search-bar">
+    <span class="search-label">Buscar:</span>
+    <select id="filter-year">
+      <option value="">Año</option>
+      <option>2023</option><option>2022</option><option>2021</option>
+      <option>2020</option><option>2019</option><option>2018</option>
+      <option>2017</option><option>2016</option><option>2015</option>
+    </select>
+    <select id="filter-make">
+      <option value="">Marca</option>
+      <option>Toyota</option><option>Honda</option><option>Ford</option>
+      <option>Chevrolet</option><option>BMW</option><option>Audi</option>
+      <option>Nissan</option><option>Fiat</option><option>Subaru</option>
+    </select>
+    <select id="filter-model">
+      <option value="">Modelo</option>
+    </select>
+    <select id="filter-history">
+      <option value="">Historial</option>
+      <option>Rebuilt Title</option>
+      <option>Clean Title</option>
+    </select>
+    <button class="btn-search" onclick="goSearch()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Buscar
+    </button>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Vehículos Disponibles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Clientes Satisfechos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Meses de Garantía</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Te Financiamos</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ INVENTORY ============ -->
+<section class="section" id="inventory">
+  <div class="section-header">
+    <h2 class="section-title">Nuevo <span class="purple">Inventario</span></h2>
+    <a href="inventario.html" class="see-all">Ver todo →</a>
+  </div>
+  <div class="inventory-grid" id="cars-grid">
+    <!-- Car cards injected by JS -->
+  </div>
+</section>
+
+<!-- ============ FIND BY MODEL ============ -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2 class="section-title">Busca por <span class="purple">Modelo</span></h2>
+  </div>
+  <div class="models-grid">
+    <a href="inventario.html?type=sedan" class="model-card">
+      <span class="model-icon">🚗</span>
+      <div class="model-name">Sedan</div>
+      <div class="model-count">12 disponibles</div>
+    </a>
+    <a href="inventario.html?type=suv" class="model-card">
+      <span class="model-icon">🚙</span>
+      <div class="model-name">SUV</div>
+      <div class="model-count">18 disponibles</div>
+    </a>
+    <a href="inventario.html?type=coupe" class="model-card">
+      <span class="model-icon">🏎️</span>
+      <div class="model-name">Coupe</div>
+      <div class="model-count">7 disponibles</div>
+    </a>
+    <a href="inventario.html?type=pickup" class="model-card">
+      <span class="model-icon">🛻</span>
+      <div class="model-name">Pick-up</div>
+      <div class="model-count">9 disponibles</div>
+    </a>
+    <a href="inventario.html?type=van" class="model-card">
+      <span class="model-icon">🚐</span>
+      <div class="model-name">Van / Minivan</div>
+      <div class="model-count">4 disponibles</div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FINANCING / BHPH ============ -->
+<div class="financing-banner" id="financing">
+  <div class="financing-inner">
+    <div>
+      <div class="financing-tag">
+        <span>BUY HERE PAY HERE</span>
+      </div>
+      <h2 class="financing-title">
+        <span class="purple">Te Financiamos</span><br>
+        Sin Importar Tu Crédito
+      </h2>
+      <p class="financing-desc">
+        Somos un dealer Buy Here Pay Here. Nosotros mismos te damos el financiamiento, sin bancos, sin trámites complicados. Solo necesitas comprobar ingresos.
+      </p>
+      <ul class="financing-checklist">
+        <li><div class="check-icon">✓</div> No se necesita crédito</li>
+        <li><div class="check-icon">✓</div> Pagos semanales o quincenales</li>
+        <li><div class="check-icon">✓</div> Enganche desde $500</li>
+        <li><div class="check-icon">✓</div> 6 meses de garantía incluida</li>
+        <li><div class="check-icon">✓</div> Rebuilt title specialists</li>
+      </ul>
+    </div>
+    <div class="calc-card">
+      <h3 class="calc-title">Calcula Tu Pago</h3>
+      <div class="calc-field">
+        <label class="calc-label">Precio del Vehículo</label>
+        <input type="number" class="calc-input" id="calc-price" placeholder="$12,000" value="12000">
+      </div>
+      <div class="calc-field">
+        <label class="calc-label">Enganche</label>
+        <input type="number" class="calc-input" id="calc-down" placeholder="$1,000" value="1000">
+      </div>
+      <div class="calc-field">
+        <label class="calc-label">Plazo</label>
+        <select class="calc-input" id="calc-term">
+          <option value="12">12 meses</option>
+          <option value="24" selected>24 meses</option>
+          <option value="36">36 meses</option>
+          <option value="48">48 meses</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label class="calc-label">Frecuencia de Pago</label>
+        <select class="calc-input" id="calc-freq">
+          <option value="weekly">Semanal</option>
+          <option value="biweekly" selected>Quincenal</option>
+          <option value="monthly">Mensual</option>
+        </select>
+      </div>
+      <div class="calc-result">
+        <div>
+          <div class="calc-result-label">Tu pago estimado</div>
+          <div class="calc-result-freq" id="calc-freq-label">Quincenal</div>
+        </div>
+        <div class="calc-result-amount" id="calc-result">$229</div>
+      </div>
+      <button class="btn-calc-apply" onclick="window.location.href='#contact'">
+        Aplicar Ahora — Es Gratis
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ REVIEWS ============ -->
+<div class="reviews-section">
+  <div class="reviews-inner">
+    <div class="section-header">
+      <h2 class="section-title">Clientes <span class="purple">Felices</span></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excelente servicio, me ayudaron con mi financiamiento sin problema. Salí manejando el mismo día. Muy recomendados."</p>
+        <div class="review-author">
+          <div class="review-avatar">MG</div>
+          <div>
+            <div class="review-name">María G.</div>
+            <div class="review-location">Nashville, TN</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Me dijeron que en otro lugar no me podían ayudar por mi crédito. Aquí no hubo problema. 100% recomendados."</p>
+        <div class="review-author">
+          <div class="review-avatar">CR</div>
+          <div>
+            <div class="review-name">Carlos R.</div>
+            <div class="review-location">Murfreesboro, TN</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Hablan español y eso hace toda la diferencia. Me explicaron todo muy bien y el proceso fue muy rápido."</p>
+        <div class="review-author">
+          <div class="review-avatar">JP</div>
+          <div>
+            <div class="review-name">Juan P.</div>
+            <div class="review-location">Antioch, TN</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ REBUILT TITLE ============ -->
+<div class="rebuilt-section">
+  <div class="rebuilt-inner">
+    <div>
+      <div class="rebuilt-tag">Educación</div>
+      <h2 class="rebuilt-title">¿Qué es un<br>Rebuilt Title?</h2>
+      <p class="rebuilt-desc">
+        Un carro con rebuilt title es un vehículo que fue declarado pérdida total por una aseguradora, pero fue reparado y pasó una inspección del estado. Son completamente legales y ofrecen un ahorro enorme comparado con carros de título limpio.
+      </p>
+      <a href="inventario.html" class="btn-primary" style="width:fit-content">Ver Nuestros Carros →</a>
+    </div>
+    <div class="rebuilt-faq">
+      <div class="faq-item open">
+        <div class="faq-q">¿Es seguro manejar un carro rebuilt? <span>+</span></div>
+        <div class="faq-a">Sí. Todos nuestros vehículos pasan una inspección rigurosa antes de la venta. El rebuilt title solo indica el historial del seguro, no el estado actual del vehículo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo asegurarlo? <span>+</span></div>
+        <div class="faq-a">Sí, los carros rebuilt pueden ser asegurados. La mayoría de las aseguradoras los cubren con responsabilidad civil. El costo puede variar según la compañía.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Cuánto ahorro con un rebuilt title? <span>+</span></div>
+        <div class="faq-a">Normalmente entre un 30% y 50% menos que el mismo vehículo con título limpio. Es una excelente opción para quienes buscan confiabilidad a mejor precio.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo revenderlo después? <span>+</span></div>
+        <div class="faq-a">Sí, se puede revender. El valor de mercado es menor que un título limpio, pero muchos compradores buscan específicamente rebuilt titles por el precio.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-block">
+      <h3>Teléfono</h3>
+      <p><a href="tel:6152557700">(615) 255-7700</a></p>
+      <br>
+      <h3>Email</h3>
+      <p><a href="mailto:eandsautosales@hotmail.com">eandsautosales@hotmail.com</a></p>
+    </div>
+    <div class="contact-block">
+      <h3>Ubicación</h3>
+      <p>2115 Nolensville Pike<br>Nashville, Tennessee 37211</p>
+      <a href="https://maps.google.com/maps?q=2115+Nolensville+Pike+Nashville+TN+37211" target="_blank" rel="noopener" class="btn-directions">
+        Cómo Llegar →
+      </a>
+    </div>
+    <div class="contact-block">
+      <h3>Horario</h3>
+      <div class="hours-grid">
+        <div class="hours-row"><span class="day">Lunes</span></div><div class="hours-row">8:00 am – 6:30 pm</div>
+        <div class="hours-row"><span class="day">Martes</span></div><div class="hours-row">8:00 am – 6:30 pm</div>
+        <div class="hours-row"><span class="day">Miércoles</span></div><div class="hours-row">8:00 am – 6:30 pm</div>
+        <div class="hours-row"><span class="day">Jueves</span></div><div class="hours-row">8:00 am – 6:30 pm</div>
+        <div class="hours-row"><span class="day">Viernes</span></div><div class="hours-row">8:00 am – 6:30 pm</div>
+        <div class="hours-row"><span class="day">Sábado</span></div><div class="hours-row">8:00 am – 6:30 pm</div>
+        <div class="hours-row"><span class="day">Domingo</span></div><div class="hours-row">10:00 am – 4:00 pm</div>
+      </div>
+    </div>
+  </div>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.9!2d-86.7736!3d36.1001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886466b80acb0b5d%3A0x5c2ea4cec3e4d7e5!2s2115%20Nolensville%20Pike%2C%20Nashville%2C%20TN%2037211!5e0!3m2!1ses!2sus!4v1680000000000"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-left">© 2025 E&S Auto Paisano. Todos los derechos reservados.</div>
+  <div class="footer-links">
+    <a href="#">Política de Privacidad</a>
+    <a href="#">Términos de Uso</a>
+  </div>
+  <div class="powered-by">
+    Powered by
+    <a href="https://cardealerflow.com" target="_blank" rel="noopener">
+      <img src="images/cdf-logo.jpg" alt="CardealerFlow">
+      CardealerFlow
+    </a>
+  </div>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="float-buttons">
+  <a href="https://wa.me/16152557700?text=Hola!%20Vi%20su%20inventario%20y%20me%20interesa%20un%20carro.%20%C2%BFMe%20pueden%20ayudar%3F"
+     target="_blank" rel="noopener" class="btn-float btn-whatsapp">
+    <svg class="float-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    WhatsApp
+  </a>
+  <button class="btn-float btn-chat" onclick="toggleChat()">
+    <svg class="float-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    Chat IA
+  </button>
+</div>
+
+<!-- ============ CHAT WIDGET ============ -->
+<div class="chat-widget" id="chat-widget">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-info">
+      <h4>Asistente Auto Paisano</h4>
+      <p>Responde al instante · Hablamos español</p>
+    </div>
+    <button class="chat-header-close" onclick="toggleChat()">×</button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-msg bot">
+      ¡Hola! 👋 Soy el asistente de E&S Auto Paisano. ¿En qué te puedo ayudar hoy?
+    </div>
+    <div class="chat-msg bot">
+      Puedo ayudarte con información sobre carros, precios, financiamiento o agendar una cita.
+    </div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" class="chat-input" id="chat-input" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendMessage()">
+    <button class="chat-send" onclick="sendMessage()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+  /* ---- Inventory data ---- */
+  const cars = [
+    { id:1, year:2019, make:'BMW', model:'X3 Sport', miles:20850, price:39200, type:'SUV', badge:'bestseller', drivetrain:'RWD', engine:'4-Cil', img:'images/car1.jpg' },
+    { id:2, year:2016, make:'Toyota', model:'BRZ', miles:61475, price:21690, type:'Coupe', badge:'popular', drivetrain:'RWD', engine:'4-Cil', img:'images/car2.jpg' },
+    { id:3, year:2019, make:'Audi', model:'S4 Premium Plus', miles:11475, price:41400, type:'Sedan', badge:'bestseller', drivetrain:'AWD', engine:'4-Cil Turbo', img:'images/car3.jpg' },
+    { id:4, year:2019, make:'Fiat', model:'500', miles:45000, price:21480, type:'Coupe', badge:'popular', drivetrain:'FWD', engine:'4-Cil', img:'images/car4.jpg' },
+    { id:5, year:2018, make:'Ford', model:'Mustang GT', miles:38000, price:32500, type:'Coupe', badge:'', drivetrain:'RWD', engine:'V8', img:'images/car5.jpg' },
+    { id:6, year:2020, make:'Honda', model:'CR-V EX', miles:28400, price:28900, type:'SUV', badge:'popular', drivetrain:'AWD', engine:'4-Cil Turbo', img:'images/car6.jpg' },
+    { id:7, year:2017, make:'Chevrolet', model:'Malibu LT', miles:52000, price:16500, type:'Sedan', badge:'', drivetrain:'FWD', engine:'4-Cil', img:'' },
+    { id:8, year:2021, make:'Toyota', model:'Camry SE', miles:18200, price:26800, type:'Sedan', badge:'bestseller', drivetrain:'FWD', engine:'4-Cil', img:'' },
+  ];
+
+  function renderCars(list) {
+    const grid = document.getElementById('cars-grid');
+    const show = list || cars.slice(0, 8);
+    grid.innerHTML = show.map(c => `
+      <a href="detalle.html?id=${c.id}" class="car-card">
+        <div class="car-img-wrap">
+          ${c.img ? `<img src="${c.img}" alt="${c.year} ${c.make} ${c.model}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="car-img-placeholder" style="display:none">🚗</div>` : `<div class="car-img-placeholder">🚗</div>`}
+          <div class="badge-wrap">
+            ${c.badge === 'bestseller' ? '<span class="badge badge-bestseller">Bestseller</span>' : ''}
+            ${c.badge === 'popular' ? '<span class="badge badge-popular">Popular</span>' : ''}
+            <span class="badge badge-rebuilt">Rebuilt</span>
+          </div>
+        </div>
+        <div class="car-body">
+          <div class="car-title">${c.year} ${c.make} ${c.model}</div>
+          <div class="car-meta">
+            <span>${c.miles.toLocaleString()} mi</span>
+            <span class="dot"></span>
+            <span>${c.drivetrain}</span>
+            <span class="dot"></span>
+            <span>${c.engine}</span>
+          </div>
+          <div class="car-footer">
+            <div>
+              <div class="car-price">$${c.price.toLocaleString()}</div>
+              <div class="car-weekly">~$${Math.round(c.price/104)} / semana</div>
+            </div>
+            <div class="btn-card-detail">Ver más</div>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  renderCars();
+
+  /* ---- Search redirect ---- */
+  function goSearch() {
+    const year = document.getElementById('filter-year').value;
+    const make = document.getElementById('filter-make').value;
+    const model = document.getElementById('filter-model').value;
+    const history = document.getElementById('filter-history').value;
+    const params = new URLSearchParams();
+    if (year) params.set('year', year);
+    if (make) params.set('make', make);
+    if (model) params.set('model', model);
+    if (history) params.set('history', history);
+    window.location.href = 'inventario.html' + (params.toString() ? '?' + params.toString() : '');
+  }
+
+  /* ---- Payment calculator ---- */
+  function calcPayment() {
+    const price = parseFloat(document.getElementById('calc-price').value) || 0;
+    const down = parseFloat(document.getElementById('calc-down').value) || 0;
+    const term = parseInt(document.getElementById('calc-term').value) || 24;
+    const freq = document.getElementById('calc-freq').value;
+    const rate = 0.18 / 12;
+    const principal = price - down;
+    if (principal <= 0) { document.getElementById('calc-result').textContent = '$0'; return; }
+    const monthly = principal * rate * Math.pow(1+rate,term) / (Math.pow(1+rate,term)-1);
+    let amount, label;
+    if (freq === 'weekly') { amount = monthly * 12 / 52; label = 'Semanal'; }
+    else if (freq === 'biweekly') { amount = monthly * 12 / 26; label = 'Quincenal'; }
+    else { amount = monthly; label = 'Mensual'; }
+    document.getElementById('calc-result').textContent = '$' + Math.round(amount).toLocaleString();
+    document.getElementById('calc-freq-label').textContent = label;
+  }
+
+  ['calc-price','calc-down','calc-term','calc-freq'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcPayment);
+    document.getElementById(id).addEventListener('change', calcPayment);
+  });
+  calcPayment();
+
+  /* ---- FAQ accordion ---- */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  /* ---- Chat widget ---- */
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const w = document.getElementById('chat-widget');
+    if (chatOpen) {
+      w.style.display = 'flex';
+      setTimeout(() => { w.style.opacity='1'; w.style.transform='translateY(0)'; }, 10);
+    } else {
+      w.style.opacity='0'; w.style.transform='translateY(20px)';
+      setTimeout(() => w.style.display='none', 300);
+    }
+  }
+
+  const botResponses = {
+    default: ["Gracias por tu mensaje. ¿Te gustaría que te ayude a agendar una cita?", "También puedes llamarnos al (615) 255-7700 o escribirnos por WhatsApp.", "¿Hay algo más en que te pueda ayudar?"],
+    precio: ["Nuestros carros van desde $5,000 hasta $45,000. ¿Tienes un presupuesto en mente?", "Todos nuestros carros incluyen 6 meses de garantía. ¿Quieres ver el inventario?"],
+    financiamiento: ["¡Claro que sí! Somos Buy Here Pay Here, te financiamos sin importar tu crédito. ¿Cuánto tienes de enganche?"],
+    rebuilt: ["Un rebuilt title es un carro reparado después de una pérdida total. Son legales y mucho más baratos. ¿Tienes alguna pregunta?"],
+    cita: ["Con gusto te agendamos. Estamos en 2115 Nolensville Pike, Nashville TN. ¿Qué día te funciona mejor?"],
+  };
+
+  function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    addMsg(msg, 'user');
+    input.value = '';
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      const lower = msg.toLowerCase();
+      let responses = botResponses.default;
+      if (lower.includes('precio') || lower.includes('costo') || lower.includes('cuánto')) responses = botResponses.precio;
+      else if (lower.includes('financ') || lower.includes('crédito') || lower.includes('pago')) responses = botResponses.financiamiento;
+      else if (lower.includes('rebuilt') || lower.includes('título')) responses = botResponses.rebuilt;
+      else if (lower.includes('cita') || lower.includes('visita') || lower.includes('ver')) responses = botResponses.cita;
+      addMsg(responses[Math.floor(Math.random()*responses.length)], 'bot');
+    }, 1000);
+  }
+
+  function addMsg(text, type) {
+    const msgs = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + type;
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  let typingEl = null;
+  function showTyping() {
+    const msgs = document.getElementById('chat-messages');
+    typingEl = document.createElement('div');
+    typingEl.className = 'chat-msg bot';
+    typingEl.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+    msgs.appendChild(typingEl);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    if (typingEl) { typingEl.remove(); typingEl = null; }
+  }
+
+  /* ---- Mobile menu ---- */
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+
+  /* ---- Navbar shadow on scroll ---- */
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 10) {
+      nav.style.boxShadow = '0 2px 16px rgba(0,0,0,0.1)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario — E&S Auto Paisano | Nashville, TN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #5B3FFF;
+    --primary-dark: #4730CC;
+    --primary-light: #EDE8FF;
+    --bg: #FFFFFF;
+    --bg-gray: #F7F8FA;
+    --text: #1A1A2E;
+    --text-muted: #6B7280;
+    --text-light: #9CA3AF;
+    --border: #E5E7EB;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg-gray); color: var(--text); overflow-x: hidden; font-size: 15px; }
+
+  /* NAVBAR */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 66px;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+  .logo-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--primary); display: flex; align-items: center; justify-content: center;
+  }
+  .logo-icon svg { width: 22px; height: 22px; fill: #fff; }
+
+  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-text span:first-child { font-weight: 800; font-size: 16px; color: var(--text); letter-spacing: -0.3px; }
+  .logo-text span:last-child { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+  .nav-cta {
+    background: var(--primary); color: #fff !important; padding: 9px 20px;
+    border-radius: var(--radius-sm); font-weight: 700 !important; font-size: 14px !important;
+    display: flex; align-items: center; gap: 6px; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--primary-dark) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+  }
+
+  .page-header-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+
+  .breadcrumb { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--text-muted); }
+  .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--primary); }
+  .breadcrumb .sep { color: var(--border); }
+
+  .page-title { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+  .page-subtitle { font-size: 14px; color: var(--text-muted); margin-top: 3px; }
+
+  .result-count {
+    font-size: 13px; color: var(--text-muted);
+    background: var(--bg-gray); border: 1px solid var(--border);
+    border-radius: 100px; padding: 5px 14px; font-weight: 600;
+  }
+
+  /* LAYOUT */
+  .inv-layout {
+    max-width: 1280px; margin: 0 auto; padding: 2rem 2.5rem;
+    display: grid; grid-template-columns: 280px 1fr; gap: 2rem;
+    align-items: start;
+  }
+
+  /* SIDEBAR FILTERS */
+  .filters-panel {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.5rem;
+    position: sticky; top: 82px;
+    box-shadow: var(--shadow);
+  }
+
+  .filters-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+  }
+
+  .filters-title { font-size: 15px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+
+  .btn-clear {
+    font-size: 12px; color: var(--primary); font-weight: 600;
+    background: none; border: none; cursor: pointer; transition: opacity 0.2s;
+  }
+  .btn-clear:hover { opacity: 0.7; }
+
+  .filter-group { margin-bottom: 1.5rem; }
+
+  .filter-group-title {
+    font-size: 11px; font-weight: 700; color: var(--text-muted);
+    letter-spacing: 0.8px; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .filter-options { display: flex; flex-direction: column; gap: 6px; }
+
+  .filter-option {
+    display: flex; align-items: center; gap: 9px;
+    cursor: pointer; padding: 5px 0; transition: color 0.2s;
+  }
+
+  .filter-option input[type="checkbox"] {
+    width: 16px; height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer; flex-shrink: 0;
+    border-radius: 4px;
+  }
+
+  .filter-option label {
+    font-size: 13px; color: var(--text-muted); cursor: pointer;
+    font-weight: 500; transition: color 0.2s;
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+  }
+
+  .filter-option:hover label, .filter-option input:checked + label { color: var(--text); }
+
+  .filter-option-count {
+    font-size: 11px; color: var(--text-light);
+    background: var(--bg-gray); border-radius: 100px;
+    padding: 1px 7px; font-weight: 600;
+  }
+
+  .filter-divider { height: 1px; background: var(--border); margin: 1rem 0; }
+
+  /* Price range */
+  .price-inputs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0.5rem;
+  }
+
+  .price-input-wrap { position: relative; }
+  .price-input-wrap span {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    font-size: 12px; color: var(--text-muted); font-weight: 600;
+  }
+
+  .price-input {
+    width: 100%; background: var(--bg-gray); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); color: var(--text);
+    padding: 8px 10px 8px 22px; font-family: 'Inter', sans-serif; font-size: 13px;
+    transition: border-color 0.2s;
+  }
+  .price-input:focus { outline: none; border-color: var(--primary); }
+
+  /* Year range */
+  .year-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0.5rem; }
+
+  .year-select {
+    width: 100%; background: var(--bg-gray); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); color: var(--text);
+    padding: 8px 10px; font-family: 'Inter', sans-serif; font-size: 13px;
+    appearance: none; cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 8px center;
+    padding-right: 26px;
+  }
+  .year-select:focus { outline: none; border-color: var(--primary); }
+
+  .btn-apply-filters {
+    width: 100%; background: var(--primary); color: #fff;
+    border: none; border-radius: var(--radius-sm); padding: 11px;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: background 0.2s; margin-top: 0.5rem;
+  }
+  .btn-apply-filters:hover { background: var(--primary-dark); }
+
+  /* CARS AREA */
+  .cars-area {}
+
+  .cars-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.25rem; flex-wrap: wrap; gap: 10px;
+  }
+
+  .toolbar-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+  .active-filter {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--primary-light); border: 1px solid rgba(91,63,255,0.2);
+    border-radius: 100px; padding: 4px 10px 4px 14px;
+    font-size: 12px; color: var(--primary); font-weight: 600;
+  }
+
+  .active-filter button {
+    background: none; border: none; cursor: pointer;
+    color: var(--primary); font-size: 14px; line-height: 1;
+    padding: 0 2px; transition: opacity 0.2s;
+  }
+  .active-filter button:hover { opacity: 0.6; }
+
+  .toolbar-right { display: flex; align-items: center; gap: 10px; }
+
+  .sort-select {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); color: var(--text);
+    padding: 8px 28px 8px 12px; font-family: 'Inter', sans-serif; font-size: 13px;
+    font-weight: 500; appearance: none; cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 10px center;
+  }
+  .sort-select:focus { outline: none; }
+
+  .view-btns { display: flex; gap: 4px; }
+
+  .view-btn {
+    width: 34px; height: 34px; border: 1px solid var(--border);
+    border-radius: var(--radius-sm); background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-muted); transition: all 0.2s;
+  }
+  .view-btn.active, .view-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  /* Grid view */
+  #cars-container.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  #cars-container.list { display: flex; flex-direction: column; gap: 12px; }
+
+  /* Car Card — grid */
+  .car-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: all 0.25s; cursor: pointer; text-decoration: none;
+    color: inherit; display: block; box-shadow: var(--shadow);
+  }
+
+  .car-card:hover {
+    border-color: var(--primary); transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(91,63,255,0.12);
+  }
+
+  .car-img-wrap {
+    position: relative; aspect-ratio: 16/10; overflow: hidden;
+    background: var(--bg-gray);
+  }
+
+  .car-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .car-card:hover .car-img-wrap img { transform: scale(1.04); }
+
+  .car-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #f0f0f5, #e8e8f0); font-size: 40px;
+  }
+
+  .badge-wrap { position: absolute; top: 10px; left: 10px; display: flex; gap: 5px; flex-wrap: wrap; }
+
+  .badge { padding: 3px 9px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 0.2px; }
+  .badge-bestseller { background: var(--primary); color: #fff; }
+  .badge-popular { background: #10B981; color: #fff; }
+  .badge-rebuilt { background: rgba(0,0,0,0.55); color: #fff; backdrop-filter: blur(4px); }
+
+  .car-body { padding: 14px; }
+
+  .car-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.2; }
+
+  .car-meta {
+    font-size: 12px; color: var(--text-muted); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+  }
+  .car-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #D1D5DB; }
+
+  .car-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 10px; border-top: 1px solid var(--border);
+  }
+
+  .car-price { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+  .car-weekly { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+  .btn-card-detail {
+    background: var(--primary-light); border: none; border-radius: 6px;
+    padding: 6px 12px; font-size: 12px; font-weight: 700; color: var(--primary);
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-card-detail:hover { background: var(--primary); color: #fff; }
+
+  /* Car Card — list view */
+  #cars-container.list .car-card { display: grid; grid-template-columns: 240px 1fr; }
+  #cars-container.list .car-img-wrap { aspect-ratio: auto; height: 100%; min-height: 140px; }
+  #cars-container.list .car-body { display: flex; flex-direction: column; justify-content: space-between; padding: 16px 20px; }
+  #cars-container.list .car-title { font-size: 17px; }
+
+  /* No results */
+  .no-results {
+    text-align: center; padding: 4rem 2rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+  }
+  .no-results-icon { font-size: 48px; margin-bottom: 1rem; }
+  .no-results h3 { font-size: 18px; font-weight: 700; margin-bottom: 0.5rem; }
+  .no-results p { color: var(--text-muted); font-size: 14px; }
+
+  /* Pagination */
+  .pagination {
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; margin-top: 2.5rem; flex-wrap: wrap;
+  }
+
+  .page-btn {
+    width: 38px; height: 38px; border: 1px solid var(--border);
+    border-radius: var(--radius-sm); background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 600; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; text-decoration: none;
+  }
+  .page-btn:hover, .page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .page-btn.disabled { opacity: 0.4; pointer-events: none; }
+
+  /* FOOTER */
+  footer {
+    background: #0F0E17; padding: 1.75rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    margin-top: 3rem;
+  }
+  footer .footer-left { font-size: 13px; color: rgba(255,255,255,0.4); }
+  footer .footer-links { display: flex; gap: 1.5rem; }
+  footer .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  footer .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  footer .powered-by { font-size: 12px; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 5px; }
+  footer .powered-by a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+  @media (max-width: 1024px) {
+    .inv-layout { grid-template-columns: 1fr; }
+    .filters-panel { position: static; }
+    #cars-container.grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; flex-direction: column; background: var(--bg); position: fixed; top: 66px; left: 0; right: 0; padding: 1rem; border-bottom: 1px solid var(--border); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .inv-layout { padding: 1.5rem 1.25rem; }
+    .page-header { padding: 1.5rem 1.25rem; }
+    #cars-container.grid { grid-template-columns: 1fr; }
+    #cars-container.list .car-card { grid-template-columns: 1fr; }
+    #cars-container.list .car-img-wrap { height: 180px; }
+    footer { flex-direction: column; text-align: center; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+    </div>
+    <div class="logo-text">
+      <span>Auto Paisano</span>
+      <span>E&S · Nashville, TN</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="inventario.html" class="active">Inventario</a></li>
+    <li><a href="index.html#contact">Contacto</a></li>
+    <li><a href="index.html#financing">Financiamiento</a></li>
+    <li><a href="tel:6152557700" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Llamar Ahora
+    </a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span class="sep">›</span>
+        <span>Inventario</span>
+      </div>
+      <h1 class="page-title">Inventario Completo</h1>
+      <p class="page-subtitle">Buy Here Pay Here · Te financiamos sin crédito · Nashville, TN</p>
+    </div>
+    <span class="result-count" id="result-count">8 vehículos</span>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="inv-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="filters-panel">
+    <div class="filters-header">
+      <span class="filters-title">Filtros</span>
+      <button class="btn-clear" onclick="clearFilters()">Limpiar todo</button>
+    </div>
+
+    <!-- Tipo -->
+    <div class="filter-group">
+      <div class="filter-group-title">Tipo</div>
+      <div class="filter-options">
+        <label class="filter-option"><input type="checkbox" name="type" value="SUV">
+          <label>SUV <span class="filter-option-count">18</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="type" value="Sedan">
+          <label>Sedan <span class="filter-option-count">12</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="type" value="Coupe">
+          <label>Coupe <span class="filter-option-count">7</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="type" value="Pickup">
+          <label>Pick-up <span class="filter-option-count">9</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="type" value="Van">
+          <label>Van <span class="filter-option-count">4</span></label></label>
+      </div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <!-- Marca -->
+    <div class="filter-group">
+      <div class="filter-group-title">Marca</div>
+      <div class="filter-options">
+        <label class="filter-option"><input type="checkbox" name="make" value="Toyota">
+          <label>Toyota <span class="filter-option-count">8</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="Honda">
+          <label>Honda <span class="filter-option-count">6</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="BMW">
+          <label>BMW <span class="filter-option-count">4</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="Ford">
+          <label>Ford <span class="filter-option-count">5</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="Audi">
+          <label>Audi <span class="filter-option-count">3</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="Chevrolet">
+          <label>Chevrolet <span class="filter-option-count">4</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="Nissan">
+          <label>Nissan <span class="filter-option-count">3</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="make" value="Fiat">
+          <label>Fiat <span class="filter-option-count">2</span></label></label>
+      </div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <!-- Año -->
+    <div class="filter-group">
+      <div class="filter-group-title">Año</div>
+      <div class="year-inputs">
+        <select class="year-select" id="year-from">
+          <option value="">Desde</option>
+          <option>2015</option><option>2016</option><option>2017</option>
+          <option>2018</option><option>2019</option><option>2020</option>
+          <option>2021</option><option>2022</option><option>2023</option>
+        </select>
+        <select class="year-select" id="year-to">
+          <option value="">Hasta</option>
+          <option>2015</option><option>2016</option><option>2017</option>
+          <option>2018</option><option>2019</option><option>2020</option>
+          <option>2021</option><option>2022</option><option>2023</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <!-- Precio -->
+    <div class="filter-group">
+      <div class="filter-group-title">Precio</div>
+      <div class="price-inputs">
+        <div class="price-input-wrap">
+          <span>$</span>
+          <input type="number" class="price-input" id="price-min" placeholder="Min">
+        </div>
+        <div class="price-input-wrap">
+          <span>$</span>
+          <input type="number" class="price-input" id="price-max" placeholder="Máx">
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <!-- Historial -->
+    <div class="filter-group">
+      <div class="filter-group-title">Historial</div>
+      <div class="filter-options">
+        <label class="filter-option"><input type="checkbox" name="history" value="Rebuilt Title">
+          <label>Rebuilt Title <span class="filter-option-count">42</span></label></label>
+        <label class="filter-option"><input type="checkbox" name="history" value="Clean Title">
+          <label>Clean Title <span class="filter-option-count">8</span></label></label>
+      </div>
+    </div>
+
+    <button class="btn-apply-filters" onclick="applyFilters()">Buscar Vehículos</button>
+  </aside>
+
+  <!-- CARS SECTION -->
+  <div class="cars-area">
+    <div class="cars-toolbar">
+      <div class="toolbar-left" id="active-tags">
+        <!-- Active filter tags rendered by JS -->
+      </div>
+      <div class="toolbar-right">
+        <select class="sort-select" id="sort-select" onchange="sortCars()">
+          <option value="price-asc">Precio: menor → mayor</option>
+          <option value="price-desc">Precio: mayor → menor</option>
+          <option value="year-desc">Año: más reciente</option>
+          <option value="year-asc">Año: más antiguo</option>
+          <option value="miles-asc">Millas: menor → mayor</option>
+        </select>
+        <div class="view-btns">
+          <button class="view-btn active" onclick="setView('grid')" id="btn-grid" title="Vista grilla">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </button>
+          <button class="view-btn" onclick="setView('list')" id="btn-list" title="Vista lista">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="cars-container" class="grid">
+      <!-- injected by JS -->
+    </div>
+
+    <div class="pagination" id="pagination">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© 2025 E&S Auto Paisano. Todos los derechos reservados.</div>
+  <div class="footer-links">
+    <a href="#">Política de Privacidad</a>
+    <a href="#">Términos de Uso</a>
+  </div>
+  <div class="powered-by">
+    Powered by <a href="https://cardealerflow.com" target="_blank" rel="noopener">CardealerFlow</a>
+  </div>
+</footer>
+
+<script>
+  const allCars = [
+    { id:1, year:2019, make:'BMW', model:'X3 Sport', miles:20850, price:39200, type:'SUV', badge:'bestseller', drivetrain:'AWD', engine:'4-Cil Turbo', history:'Rebuilt Title', img:'images/car1.jpg' },
+    { id:2, year:2016, make:'Toyota', model:'BRZ', miles:61475, price:21690, type:'Coupe', badge:'popular', drivetrain:'RWD', engine:'4-Cil', history:'Rebuilt Title', img:'images/car2.jpg' },
+    { id:3, year:2019, make:'Audi', model:'S4 Premium Plus', miles:11475, price:41400, type:'Sedan', badge:'bestseller', drivetrain:'AWD', engine:'4-Cil Turbo', history:'Rebuilt Title', img:'images/car3.jpg' },
+    { id:4, year:2019, make:'Fiat', model:'500', miles:45000, price:21480, type:'Coupe', badge:'popular', drivetrain:'FWD', engine:'4-Cil', history:'Rebuilt Title', img:'images/car4.jpg' },
+    { id:5, year:2018, make:'Ford', model:'Mustang GT', miles:38000, price:32500, type:'Coupe', badge:'', drivetrain:'RWD', engine:'V8', history:'Clean Title', img:'images/car5.jpg' },
+    { id:6, year:2020, make:'Honda', model:'CR-V EX', miles:28400, price:28900, type:'SUV', badge:'popular', drivetrain:'AWD', engine:'4-Cil Turbo', history:'Rebuilt Title', img:'images/car6.jpg' },
+    { id:7, year:2017, make:'Chevrolet', model:'Malibu LT', miles:52000, price:16500, type:'Sedan', badge:'', drivetrain:'FWD', engine:'4-Cil', history:'Rebuilt Title', img:'' },
+    { id:8, year:2021, make:'Toyota', model:'Camry SE', miles:18200, price:26800, type:'Sedan', badge:'bestseller', drivetrain:'FWD', engine:'4-Cil', history:'Clean Title', img:'' },
+    { id:9, year:2018, make:'Nissan', model:'Altima SV', miles:44000, price:15900, type:'Sedan', badge:'', drivetrain:'FWD', engine:'4-Cil', history:'Rebuilt Title', img:'' },
+    { id:10, year:2020, make:'Toyota', model:'RAV4 LE', miles:32000, price:29500, type:'SUV', badge:'popular', drivetrain:'AWD', engine:'4-Cil', history:'Rebuilt Title', img:'' },
+    { id:11, year:2016, make:'Honda', model:'Civic EX', miles:68000, price:14200, type:'Sedan', badge:'', drivetrain:'FWD', engine:'4-Cil Turbo', history:'Rebuilt Title', img:'' },
+    { id:12, year:2022, make:'Ford', model:'Explorer XLT', miles:22000, price:38000, type:'SUV', badge:'', drivetrain:'AWD', engine:'6-Cil', history:'Clean Title', img:'' },
+  ];
+
+  const ITEMS_PER_PAGE = 9;
+  let currentPage = 1;
+  let filteredCars = [...allCars];
+  let currentView = 'grid';
+
+  /* Read URL params on load */
+  function readUrlParams() {
+    const p = new URLSearchParams(window.location.search);
+    if (p.get('type')) {
+      const cb = document.querySelector(`input[name="type"][value="${p.get('type').charAt(0).toUpperCase() + p.get('type').slice(1)}"]`);
+      if (cb) cb.checked = true;
+    }
+    if (p.get('make')) {
+      const cb = document.querySelector(`input[name="make"][value="${p.get('make')}"]`);
+      if (cb) cb.checked = true;
+    }
+    if (p.get('year')) document.getElementById('year-from').value = p.get('year');
+  }
+
+  function getActiveFilters() {
+    const types = [...document.querySelectorAll('input[name="type"]:checked')].map(i => i.value);
+    const makes = [...document.querySelectorAll('input[name="make"]:checked')].map(i => i.value);
+    const history = [...document.querySelectorAll('input[name="history"]:checked')].map(i => i.value);
+    const yearFrom = parseInt(document.getElementById('year-from').value) || 0;
+    const yearTo = parseInt(document.getElementById('year-to').value) || 9999;
+    const priceMin = parseFloat(document.getElementById('price-min').value) || 0;
+    const priceMax = parseFloat(document.getElementById('price-max').value) || Infinity;
+    return { types, makes, history, yearFrom, yearTo, priceMin, priceMax };
+  }
+
+  function applyFilters() {
+    const f = getActiveFilters();
+    filteredCars = allCars.filter(c => {
+      if (f.types.length && !f.types.includes(c.type)) return false;
+      if (f.makes.length && !f.makes.includes(c.make)) return false;
+      if (f.history.length && !f.history.includes(c.history)) return false;
+      if (c.year < f.yearFrom || c.year > f.yearTo) return false;
+      if (c.price < f.priceMin || c.price > f.priceMax) return false;
+      return true;
+    });
+    currentPage = 1;
+    sortCars(false);
+    renderActiveTags(f);
+    renderCars();
+    updateCount();
+  }
+
+  function renderActiveTags(f) {
+    const container = document.getElementById('active-tags');
+    const tags = [];
+    f.types.forEach(t => tags.push({ label: t, type: 'type', value: t }));
+    f.makes.forEach(m => tags.push({ label: m, type: 'make', value: m }));
+    f.history.forEach(h => tags.push({ label: h, type: 'history', value: h }));
+    if (f.yearFrom > 0) tags.push({ label: 'Desde ' + f.yearFrom, type: 'year', value: 'from' });
+    if (f.priceMin > 0) tags.push({ label: 'Min $' + f.priceMin.toLocaleString(), type: 'price', value: 'min' });
+    if (f.priceMax < Infinity) tags.push({ label: 'Máx $' + f.priceMax.toLocaleString(), type: 'price', value: 'max' });
+    container.innerHTML = tags.map(t => `
+      <span class="active-filter">
+        ${t.label}
+        <button onclick="removeTag('${t.type}','${t.value}')">×</button>
+      </span>
+    `).join('');
+  }
+
+  function removeTag(type, value) {
+    if (type === 'type' || type === 'make' || type === 'history') {
+      const cb = document.querySelector(`input[name="${type}"][value="${value}"]`);
+      if (cb) cb.checked = false;
+    } else if (type === 'year') {
+      if (value === 'from') document.getElementById('year-from').value = '';
+    } else if (type === 'price') {
+      if (value === 'min') document.getElementById('price-min').value = '';
+      if (value === 'max') document.getElementById('price-max').value = '';
+    }
+    applyFilters();
+  }
+
+  function clearFilters() {
+    document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+    document.getElementById('year-from').value = '';
+    document.getElementById('year-to').value = '';
+    document.getElementById('price-min').value = '';
+    document.getElementById('price-max').value = '';
+    filteredCars = [...allCars];
+    currentPage = 1;
+    document.getElementById('active-tags').innerHTML = '';
+    renderCars();
+    updateCount();
+  }
+
+  function sortCars(render = true) {
+    const v = document.getElementById('sort-select').value;
+    filteredCars.sort((a, b) => {
+      if (v === 'price-asc') return a.price - b.price;
+      if (v === 'price-desc') return b.price - a.price;
+      if (v === 'year-desc') return b.year - a.year;
+      if (v === 'year-asc') return a.year - b.year;
+      if (v === 'miles-asc') return a.miles - b.miles;
+      return 0;
+    });
+    if (render) renderCars();
+  }
+
+  function setView(view) {
+    currentView = view;
+    document.getElementById('cars-container').className = view;
+    document.getElementById('btn-grid').classList.toggle('active', view === 'grid');
+    document.getElementById('btn-list').classList.toggle('active', view === 'list');
+  }
+
+  function updateCount() {
+    document.getElementById('result-count').textContent = filteredCars.length + ' vehículos';
+  }
+
+  function renderCars() {
+    const container = document.getElementById('cars-container');
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const page = filteredCars.slice(start, start + ITEMS_PER_PAGE);
+
+    if (page.length === 0) {
+      container.innerHTML = `
+        <div class="no-results" style="grid-column:1/-1">
+          <div class="no-results-icon">🔍</div>
+          <h3>No encontramos vehículos</h3>
+          <p>Intenta ajustar los filtros para ver más resultados.</p>
+        </div>`;
+      document.getElementById('pagination').innerHTML = '';
+      return;
+    }
+
+    container.innerHTML = page.map(c => `
+      <a href="detalle.html?id=${c.id}" class="car-card">
+        <div class="car-img-wrap">
+          ${c.img ? `<img src="${c.img}" alt="${c.year} ${c.make} ${c.model}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="car-img-placeholder" style="display:none">🚗</div>` : `<div class="car-img-placeholder">🚗</div>`}
+          <div class="badge-wrap">
+            ${c.badge === 'bestseller' ? '<span class="badge badge-bestseller">Bestseller</span>' : ''}
+            ${c.badge === 'popular' ? '<span class="badge badge-popular">Popular</span>' : ''}
+            <span class="badge badge-rebuilt">${c.history}</span>
+          </div>
+        </div>
+        <div class="car-body">
+          <div class="car-title">${c.year} ${c.make} ${c.model}</div>
+          <div class="car-meta">
+            <span>${c.miles.toLocaleString()} mi</span>
+            <span class="dot"></span>
+            <span>${c.drivetrain}</span>
+            <span class="dot"></span>
+            <span>${c.engine}</span>
+            <span class="dot"></span>
+            <span>${c.type}</span>
+          </div>
+          <div class="car-footer">
+            <div>
+              <div class="car-price">$${c.price.toLocaleString()}</div>
+              <div class="car-weekly">~$${Math.round(c.price/104)} / semana</div>
+            </div>
+            <div class="btn-card-detail">Ver detalles</div>
+          </div>
+        </div>
+      </a>
+    `).join('');
+
+    renderPagination();
+  }
+
+  function renderPagination() {
+    const total = Math.ceil(filteredCars.length / ITEMS_PER_PAGE);
+    if (total <= 1) { document.getElementById('pagination').innerHTML = ''; return; }
+    let html = `<button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" onclick="goPage(${currentPage-1})">‹</button>`;
+    for (let i = 1; i <= total; i++) {
+      html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
+    }
+    html += `<button class="page-btn ${currentPage === total ? 'disabled' : ''}" onclick="goPage(${currentPage+1})">›</button>`;
+    document.getElementById('pagination').innerHTML = html;
+  }
+
+  function goPage(n) {
+    const total = Math.ceil(filteredCars.length / ITEMS_PER_PAGE);
+    if (n < 1 || n > total) return;
+    currentPage = n;
+    renderCars();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* Init */
+  readUrlParams();
+  applyFilters();
+</script>
+</body>
+</html>
