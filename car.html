@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2021 BMW 228 Gran Coupe — E&S Auto Paisano</title>
+<meta name="description" content="Ver detalles del vehículo. E&S Auto Paisano — Buy Here Pay Here Nashville, TN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --y:  #F5C518;
+  --yd: #D4A800;
+  --bk: #0A0A0A;
+  --bk2:#111111;
+  --bk3:#1C1C1C;
+  --wh: #FFFFFF;
+  --gr: #888888;
+  --gl: #C0C0C0;
+  --br: rgba(255,255,255,0.08);
+  --r:  12px;
+  --rs: 8px;
+  --f-head: 'Bebas Neue', Impact, sans-serif;
+  --f-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--f-body); background: var(--bk); color: var(--wh); overflow-x: hidden; line-height: 1.5; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--f-body); cursor: pointer; }
+input, textarea { font-family: var(--f-body); }
+
+/* ══════════════════════════
+   NAVBAR
+══════════════════════════ */
+.nav {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  background: rgba(10,10,10,0.98);
+  border-bottom: 1px solid var(--br);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+.logo-circle {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--y); border: 2px solid #B8900A;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-head); font-size: 13px; color: #000;
+  flex-shrink: 0; letter-spacing: 0.5px; line-height: 1;
+}
+.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-text .t1 { font-family: var(--f-head); font-size: 16px; color: var(--wh); letter-spacing: 1.5px; }
+.logo-text .t2 { font-size: 9px; color: var(--y); font-weight: 600; letter-spacing: 0.3px; }
+
+.nav-links { display: none; list-style: none; align-items: center; gap: 1.75rem; }
+.nav-links a { color: var(--gl); font-size: 14px; font-weight: 500; transition: color .2s; }
+.nav-links a:hover { color: var(--y); }
+
+.btn-call {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--y); color: #000;
+  padding: 9px 16px; border-radius: var(--rs);
+  font-family: var(--f-head); font-size: 15px; letter-spacing: 1.5px;
+  transition: all .2s; border: none; white-space: nowrap; flex-shrink: 0;
+}
+.btn-call:hover { background: var(--yd); }
+
+.hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; cursor: pointer; margin-left: 6px; flex-shrink: 0; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--wh); border-radius: 2px; transition: all .3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+.nav-drawer {
+  display: none; position: fixed; top: 60px; left: 0; right: 0;
+  background: rgba(10,10,10,.99); border-bottom: 1px solid var(--br);
+  padding: 1.25rem 1.5rem; z-index: 199; flex-direction: column; gap: 0;
+  backdrop-filter: blur(14px);
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a { color: var(--gl); font-size: 16px; font-weight: 500; padding: 14px 0; border-bottom: 1px solid var(--br); transition: color .2s; }
+.nav-drawer a:last-child { border-bottom: none; }
+.nav-drawer a:hover { color: var(--y); }
+
+/* ══════════════════════════
+   PAGE HEADER (back + title)
+══════════════════════════ */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 1.25rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.btn-back {
+  width: 40px; height: 40px;
+  background: var(--y);
+  border-radius: var(--rs);
+  display: flex; align-items: center; justify-content: center;
+  border: none; cursor: pointer;
+  color: #000;
+  flex-shrink: 0;
+  transition: background .2s;
+  text-decoration: none;
+}
+.btn-back:hover { background: var(--yd); }
+
+.page-title {
+  font-family: var(--f-head);
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--wh);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+/* ══════════════════════════
+   PHOTO GALLERY
+══════════════════════════ */
+.gallery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bk2);
+  margin-bottom: 2rem;
+}
+
+.gallery-track-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 45vw, 500px);
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  height: 100%;
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+}
+
+.gallery-slide {
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Center slide is wider, side slides peek */
+.gallery-slide.center {
+  width: calc(70% - 4px);
+}
+
+.gallery-slide.side {
+  width: calc(15% + 2px);
+}
+
+.gallery-slide img,
+.gallery-slide .slide-placeholder {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.slide-placeholder {
+  background: var(--bk3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px;
+}
+
+/* Side slides dimmed */
+.gallery-slide.side { opacity: 0.55; }
+
+/* Gap between slides */
+.gallery-slide + .gallery-slide { margin-left: 4px; }
+
+/* Nav arrows */
+.gallery-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 10;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--wh);
+  transition: all .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.gallery-arrow:hover { background: rgba(255,255,255,0.22); }
+.gallery-arrow.prev { left: 1rem; }
+.gallery-arrow.next { right: 1rem; }
+
+/* Dots */
+.gallery-dots {
+  display: flex; justify-content: center; gap: 6px;
+  padding: 0.75rem 0;
+}
+.gallery-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gr); cursor: pointer;
+  transition: all .2s; border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.gallery-dot.active { background: var(--y); width: 18px; border-radius: 3px; }
+
+/* Thumbnail strip */
+.gallery-thumbs {
+  display: flex;
+  gap: 6px;
+  padding: 0 1.5rem 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.gallery-thumbs::-webkit-scrollbar { display: none; }
+
+.gallery-thumb {
+  flex-shrink: 0;
+  width: 72px; height: 52px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color .2s;
+  background: var(--bk3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.gallery-thumb.active { border-color: var(--y); }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ══════════════════════════
+   CONTENT LAYOUT
+══════════════════════════ */
+.content-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ══════════════════════════
+   LEFT: DESCRIPTION + SPECS
+══════════════════════════ */
+.car-description {}
+
+.desc-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--wh);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.desc-text {
+  font-size: 14px;
+  color: var(--gl);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.desc-divider {
+  height: 1px;
+  background: var(--br);
+  margin: 1.5rem 0;
+}
+
+.features-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--wh);
+  margin-bottom: 1.25rem;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--br);
+  font-size: 13px;
+}
+.feature-row:last-child { border-bottom: none; }
+
+.feature-label { color: var(--gr); font-weight: 400; }
+.feature-value { color: var(--wh); font-weight: 600; text-align: right; }
+
+/* ══════════════════════════
+   RIGHT: PRICE CARD + MAP
+══════════════════════════ */
+.car-sidebar {}
+
+/* Price card */
+.price-card {
+  background: #F8F8F8;
+  border-radius: var(--r);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.price-amount {
+  font-family: var(--f-head);
+  font-size: clamp(36px, 6vw, 48px);
+  color: #111;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.price-note {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 1.25rem;
+}
+
+.contact-label {
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--wh);
+  border: 1px solid #E5E7EB;
+  border-radius: var(--rs);
+  padding: 12px 40px 12px 14px;
+  font-size: 14px;
+  color: #111;
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.form-input:focus { border-color: var(--y); }
+.form-input::placeholder { color: #AAA; }
+
+.field-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #BBB;
+  pointer-events: none;
+}
+
+.form-label-float {
+  font-size: 10px;
+  color: #888;
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.form-input-labeled {
+  padding-top: 20px;
+}
+
+.btn-send {
+  width: 100%;
+  background: var(--y);
+  color: #000;
+  border: none;
+  border-radius: var(--rs);
+  padding: 14px;
+  font-family: var(--f-head);
+  font-size: 20px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all .2s;
+  margin-top: 0.25rem;
+}
+.btn-send:hover { background: var(--yd); transform: translateY(-1px); }
+
+/* Map */
+.map-card {
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--br);
+  height: 220px;
+}
+.map-card iframe {
+  width: 100%; height: 100%; border: none;
+  filter: grayscale(60%) invert(90%) contrast(82%) brightness(.95);
+}
+
+/* ══════════════════════════
+   REBUILT TITLE FAQ
+══════════════════════════ */
+.faq-card {
+  background: var(--bk2);
+  border: 1px solid var(--br);
+  border-radius: var(--r);
+  padding: 1.5rem;
+}
+
+.faq-badge {
+  display: inline-block;
+  background: rgba(245,197,24,0.1);
+  border: 1px solid rgba(245,197,24,0.3);
+  border-radius: 100px;
+  padding: 3px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--y);
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.faq-title {
+  font-family: var(--f-head);
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--wh);
+  margin-bottom: 0.75rem;
+}
+
+.faq-desc {
+  font-size: 13px;
+  color: var(--gr);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+
+.faq-item {
+  border-top: 1px solid var(--br);
+  padding: 0.75rem 0;
+}
+.faq-item:first-child { border-top: none; padding-top: 0; }
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wh);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  color: var(--y);
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: transform .2s;
+  line-height: 1;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-a {
+  font-size: 12px;
+  color: var(--gr);
+  line-height: 1.6;
+  margin-top: 0.6rem;
+  display: none;
+}
+
+.faq-item.open .faq-a { display: block; }
+footer {
+  background: #050505;
+  border-top: 1px solid var(--br);
+  padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem;
+}
+.footer-left { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.footer-left a, .footer-left span { font-size: 11px; color: var(--gr); transition: color .2s; }
+.footer-left a:hover { color: var(--wh); }
+
+/* ══════════════════════════
+   FLOATS
+══════════════════════════ */
+.floats { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 90; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+.btn-fl { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-radius: 100px; font-family: var(--f-head); font-size: 14px; letter-spacing: 1px; transition: all .3s; box-shadow: 0 4px 20px rgba(0,0,0,.4); cursor: pointer; border: none; min-height: 44px; -webkit-tap-highlight-color: transparent; }
+.fl-wa { background: #25D366; color: #fff; }
+.fl-wa:hover, .fl-wa:active { transform: scale(1.06); }
+.fl-chat { background: var(--y); color: #000; }
+.fl-chat:hover, .fl-chat:active { transform: scale(1.06); }
+
+/* ══════════════════════════
+   CHAT
+══════════════════════════ */
+.chat-widget { position: fixed; bottom: 8rem; right: 1.25rem; z-index: 91; width: min(320px, calc(100vw - 2.5rem)); background: var(--bk2); border: 1px solid var(--br); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.7); display: none; flex-direction: column; overflow: hidden; }
+.chat-widget.open { display: flex; }
+.chat-hdr { background: var(--y); padding: 12px 14px; display: flex; align-items: center; gap: 10px; }
+.chat-av { width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.chat-hdr-info h4 { font-family: var(--f-head); font-size: 15px; letter-spacing: 1px; color: #000; }
+.chat-hdr-info p { font-size: 10px; color: rgba(0,0,0,.6); }
+.chat-x { margin-left: auto; background: none; border: none; color: rgba(0,0,0,.5); font-size: 22px; cursor: pointer; line-height: 1; padding: 0; min-width: 28px; min-height: 28px; display: flex; align-items: center; justify-content: center; }
+.chat-msgs { padding: 14px; min-height: 130px; max-height: 220px; overflow-y: auto; -webkit-overflow-scrolling: touch; display: flex; flex-direction: column; gap: 10px; }
+.chat-msg { max-width: 85%; padding: 9px 12px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
+.chat-msg.bot { background: var(--bk3); color: var(--gl); align-self: flex-start; border-bottom-left-radius: 3px; }
+.chat-msg.user { background: var(--y); color: #000; align-self: flex-end; font-weight: 500; border-bottom-right-radius: 3px; }
+.chat-row { padding: 10px; border-top: 1px solid var(--br); display: flex; gap: 8px; }
+.chat-inp { flex: 1; background: var(--bk3); border: 1px solid var(--br); border-radius: var(--rs); color: var(--wh); padding: 9px 12px; font-family: var(--f-body); font-size: 14px; outline: none; transition: border-color .2s; min-height: 40px; -webkit-appearance: none; }
+.chat-inp:focus { border-color: var(--y); }
+.chat-snd { background: var(--y); border: none; border-radius: var(--rs); width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.chat-snd:hover { background: var(--yd); }
+.dots { display: flex; gap: 4px; align-items: center; }
+.dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--gr); animation: bnc 1.2s infinite; }
+.dots span:nth-child(2) { animation-delay: .2s; }
+.dots span:nth-child(3) { animation-delay: .4s; }
+@keyframes bnc { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media (min-width: 900px) {
+  .nav { padding: 0 2rem; height: 64px; }
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+
+  .page-header { padding: 1.5rem 2rem; }
+  .content-wrap { grid-template-columns: 1fr 360px; padding: 0 2rem 3rem; gap: 3rem; }
+
+  .gallery-slide.center { width: calc(66% - 4px); }
+  .gallery-slide.side { width: calc(17% + 2px); }
+
+  .gallery-thumbs { padding: 0 2rem 1.25rem; }
+}
+
+@media (max-width: 479px) {
+  .gallery-arrow { width: 34px; height: 34px; }
+  .gallery-slide.center { width: calc(80% - 4px); }
+  .gallery-slide.side { width: calc(10% + 2px); }
+  .price-amount { font-size: 36px; }
+  .floats { bottom: 1rem; right: 1rem; }
+  .btn-fl .fl-label { display: none; }
+  .btn-fl { padding: 12px; border-radius: 50%; width: 48px; height: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <div class="logo-circle">E&S</div>
+    <div class="logo-text">
+      <span class="t1">AUTO PAISANO</span>
+      <span class="t2">Nashville, Tennessee</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/inventario.html">Inventory</a></li>
+    <li><a href="/#contact">Contact Us</a></li>
+    <li><a href="/#financing">Financing</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="tel:6152557700" class="btn-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      CALL NOW
+    </a>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="/" onclick="closeNav()">Home</a>
+  <a href="/inventario.html" onclick="closeNav()">Inventory</a>
+  <a href="/#contact" onclick="closeNav()">Contact Us</a>
+  <a href="/#financing" onclick="closeNav()">Financing</a>
+</div>
+
+<!-- ══ PAGE HEADER ══ -->
+<div class="page-header">
+  <a href="/inventario.html" class="btn-back" aria-label="Volver al inventario">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+  </a>
+  <h1 class="page-title" id="car-title">2021 BMW 228 Gran Coupe</h1>
+</div>
+
+<!-- ══ PHOTO GALLERY ══ -->
+<div class="gallery">
+  <div class="gallery-track-wrap">
+    <div class="gallery-track" id="gallery-track">
+      <!-- Slides injected by JS -->
+    </div>
+
+    <!-- Arrows -->
+    <button class="gallery-arrow prev" onclick="galleryPrev()" aria-label="Foto anterior">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="gallery-arrow next" onclick="galleryNext()" aria-label="Foto siguiente">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <!-- Dots -->
+  <div class="gallery-dots" id="gallery-dots"></div>
+
+  <!-- Thumbs -->
+  <div class="gallery-thumbs" id="gallery-thumbs"></div>
+</div>
+
+<!-- ══ CONTENT ══ -->
+<div class="content-wrap">
+
+  <!-- LEFT: Description + Features -->
+  <div class="car-description">
+    <h2 class="desc-title" id="desc-title">What Is the 2021 BMW 2 Series?</h2>
+    <p class="desc-text">
+      The coupe and convertible come in 230i and M240i form. The 230i is powered by a 248-horsepower, turbocharged 2.0-liter four-cylinder engine, while the M240i gets a 335-hp, turbocharged 3.0-liter inline-six. Both versions are offered with rear- or all-wheel drive and an eight-speed automatic or six-speed manual transmission.
+    </p>
+    <p class="desc-text">
+      The Gran Coupe is powered by a turbocharged 2.0-liter four-cylinder that makes 228 hp in the 228i and 301 hp in the M235i. The Gran Coupe has standard all-wheel drive and an eight-speed automatic transmission.
+    </p>
+
+    <div class="desc-divider"></div>
+
+    <h3 class="features-title">Features</h3>
+
+    <div id="features-list">
+      <!-- Rows injected by JS -->
+    </div>
+
+    <div class="desc-divider" style="margin-top:1.25rem"></div>
+  </div>
+
+  <!-- RIGHT: Price Card + Map -->
+  <div class="car-sidebar">
+
+    <!-- Price Card -->
+    <div class="price-card">
+      <div class="price-amount" id="car-price">$14,560.00</div>
+      <div class="price-note">+ tax, tag and title</div>
+
+      <div class="contact-label">Contact Seller</div>
+
+      <div class="form-field">
+        <input type="text" class="form-input" placeholder="Full name" id="form-name">
+        <span class="field-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+      </div>
+
+      <div class="form-field">
+        <input type="tel" class="form-input" placeholder="Phone" id="form-phone">
+        <span class="field-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </span>
+      </div>
+
+      <div class="form-field" style="position:relative">
+        <label class="form-label-float">Email</label>
+        <input type="email" class="form-input form-input-labeled" value="catherine.shaw@gmail.com" id="form-email">
+        <span class="field-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+      </div>
+
+      <button class="btn-send" onclick="sendRequest()">Send Request</button>
+    </div>
+
+    <!-- Rebuilt Title FAQ -->
+    <div class="faq-card">
+      <div class="faq-badge">EDUCACIÓN</div>
+      <h3 class="faq-title">¿Qué es un Rebuilt Title?</h3>
+      <p class="faq-desc">Un carro con rebuilt title fue declarado pérdida total por una aseguradora, reparado y pasó inspección del estado. Son legales y ofrecen un ahorro enorme.</p>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            ¿Es seguro manejar un rebuilt?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Sí. Todos nuestros vehículos pasan una inspección rigurosa antes de la venta. El rebuilt title solo indica el historial del seguro, no el estado actual del vehículo.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            ¿Puedo asegurarlo?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Sí, los carros rebuilt pueden ser asegurados. La mayoría de las aseguradoras los cubren con responsabilidad civil.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            ¿Cuánto ahorro vs título limpio?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Normalmente entre un 30% y 50% menos que el mismo vehículo con título limpio. Excelente opción para quienes buscan confiabilidad a menor precio.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            ¿Puedo revenderlo después?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Sí, se puede revender. El valor de mercado es menor que un título limpio, pero muchos compradores buscan rebuilt titles específicamente por el precio.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-left">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Term of Use</a>
+    <span>© 2025 All rights reserved</span>
+  </div>
+</footer>
+
+<!-- ══ FLOATS ══ -->
+<div class="floats">
+  <a href="https://wa.me/16152557700?text=Hola!%20Estoy%20interesado%20en%20un%20vehículo." target="_blank" class="btn-fl fl-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span class="fl-label">WhatsApp</span>
+  </a>
+  <button class="btn-fl fl-chat" onclick="toggleChat()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="fl-label">Chat</span>
+  </button>
+</div>
+
+<!-- ══ CHAT ══ -->
+<div class="chat-widget" id="chat-widget">
+  <div class="chat-hdr">
+    <div class="chat-av">🤖</div>
+    <div class="chat-hdr-info">
+      <h4>Asistente Auto Paisano</h4>
+      <p>Responde en segundos · Hablamos español</p>
+    </div>
+    <button class="chat-x" onclick="toggleChat()" aria-label="Cerrar">×</button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs">
+    <div class="chat-msg bot">¡Hola! 👋 ¿Te interesa este vehículo? Puedo ayudarte.</div>
+  </div>
+  <div class="chat-row">
+    <input type="text" class="chat-inp" id="chat-inp" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-snd" onclick="sendChat()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ══ CAR DATA (loaded from URL params in real version) ══ */
+const carData = {
+  title: '2021 BMW 228 Gran Coupe',
+  price: '$14,560.00',
+  descTitle: 'What Is the 2021 BMW 2 Series?',
+  photos: ['🚗','🏎️','🚙','🚗','🏎️'],
+  features: [
+    { label: 'Fuel Type',       value: 'Gasoline' },
+    { label: 'City MPG',        value: '23' },
+    { label: 'Drivetrain',      value: 'AWD' },
+    { label: 'Engine',          value: '2.0L I4 16V GDI DOHC Turbo' },
+    { label: 'Exterior Color',  value: 'Jet Black' },
+    { label: 'Interior Color',  value: 'Black' },
+    { label: 'Transmission',    value: '8-Speed Automatic' },
+    { label: 'Vin',             value: '3N1AB7AP0GY******' },
+    { label: 'Doc Type',        value: 'Certificate of destruction' },
+    { label: 'Odometer',        value: '85,900 mi' },
+    { label: 'Damage',          value: 'Rear end' },
+  ]
+};
+
+/* ══ INIT ══ */
+document.getElementById('car-title').textContent = carData.title;
+document.getElementById('car-price').textContent  = carData.price;
+document.getElementById('desc-title').textContent = carData.descTitle;
+
+/* Features list */
+document.getElementById('features-list').innerHTML = carData.features.map(f => `
+  <div class="feature-row">
+    <span class="feature-label">${f.label}</span>
+    <span class="feature-value">${f.value}</span>
+  </div>
+`).join('');
+
+/* ══ GALLERY ══ */
+let currentSlide = 0;
+const photos = carData.photos;
+
+function buildGallery() {
+  const track  = document.getElementById('gallery-track');
+  const dots   = document.getElementById('gallery-dots');
+  const thumbs = document.getElementById('gallery-thumbs');
+
+  /* Build track: prev-side, center, next-side */
+  track.innerHTML = photos.map((p, i) => {
+    let cls = 'gallery-slide side';
+    if (i === 0) cls = 'gallery-slide center';
+    return `
+      <div class="${cls}" id="slide-${i}" onclick="goSlide(${i})">
+        <div class="slide-placeholder">${p}</div>
+      </div>
+    `;
+  }).join('');
+
+  /* Dots */
+  dots.innerHTML = photos.map((_, i) =>
+    `<button class="gallery-dot ${i===0?'active':''}" onclick="goSlide(${i})" aria-label="Foto ${i+1}"></button>`
+  ).join('');
+
+  /* Thumbs */
+  thumbs.innerHTML = photos.map((p, i) =>
+    `<div class="gallery-thumb ${i===0?'active':''}" onclick="goSlide(${i})">${p}</div>`
+  ).join('');
+
+  updateGallery();
+}
+
+function updateGallery() {
+  /* Update slide classes */
+  photos.forEach((_, i) => {
+    const slide = document.getElementById('slide-' + i);
+    if (!slide) return;
+    slide.className = 'gallery-slide ' + (i === currentSlide ? 'center' : 'side');
+  });
+
+  /* Update dots */
+  document.querySelectorAll('.gallery-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === currentSlide);
+  });
+
+  /* Update thumbs */
+  document.querySelectorAll('.gallery-thumb').forEach((t, i) => {
+    t.classList.toggle('active', i === currentSlide);
+  });
+
+  /* Scroll track to center current slide */
+  const track = document.getElementById('gallery-track');
+  const wrap  = track.parentElement;
+  const wrapW = wrap.offsetWidth;
+  const centerSlide = document.getElementById('slide-' + currentSlide);
+  if (centerSlide) {
+    const slideLeft = centerSlide.offsetLeft;
+    const slideW    = centerSlide.offsetWidth;
+    const offset    = slideLeft - (wrapW / 2) + (slideW / 2);
+    track.style.transform = `translateX(-${offset}px)`;
+  }
+}
+
+function goSlide(n) {
+  currentSlide = Math.max(0, Math.min(n, photos.length - 1));
+  updateGallery();
+}
+
+function galleryPrev() { goSlide(currentSlide > 0 ? currentSlide - 1 : photos.length - 1); }
+function galleryNext() { goSlide(currentSlide < photos.length - 1 ? currentSlide + 1 : 0); }
+
+/* Touch/swipe support */
+let touchStartX = 0;
+document.getElementById('gallery-track').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+document.getElementById('gallery-track').addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) { diff > 0 ? galleryNext() : galleryPrev(); }
+});
+
+/* Keyboard nav */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') galleryPrev();
+  if (e.key === 'ArrowRight') galleryNext();
+});
+
+buildGallery();
+
+/* ══ FORM ══ */
+function toggleFaq(qEl) {
+  const item = qEl.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+function sendRequest() {
+  const name  = document.getElementById('form-name').value.trim();
+  const phone = document.getElementById('form-phone').value.trim();
+  const email = document.getElementById('form-email').value.trim();
+
+  if (!name || !phone) {
+    alert('Por favor llena tu nombre y teléfono.');
+    return;
+  }
+
+  alert(`✅ ¡Solicitud enviada!\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\n\nTe contactaremos pronto.`);
+}
+
+/* ══ NAV ══ */
+function toggleNav() {
+  const drawer = document.getElementById('nav-drawer');
+  const burger = document.getElementById('hamburger');
+  const open = drawer.classList.toggle('open');
+  burger.classList.toggle('open', open);
+}
+function closeNav() {
+  document.getElementById('nav-drawer').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+/* ══ CHAT ══ */
+let chatOpen = false;
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chat-widget').classList.toggle('open', chatOpen);
+}
+const replies = {
+  precio: '¡Este carro está a $14,560! ¿Te gustaría agendar una visita?',
+  financiamiento: 'Somos Buy Here Pay Here — financiamos sin importar el crédito. ¿Cuánto tienes de enganche?',
+  cita: '¡Claro! Estamos en 2115 Nolensville Pike, Nashville TN. ¿Qué día te funciona?',
+  default: '¡Gracias! Puedes llamarnos al (615) 255-7700 o enviarnos un mensaje por WhatsApp.',
+};
+function sendChat() {
+  const inp = document.getElementById('chat-inp');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  addMsg(msg, 'user'); inp.value = '';
+  showTyping();
+  setTimeout(() => {
+    removeTyping();
+    const l = msg.toLowerCase();
+    const k = l.includes('precio')||l.includes('cuánto')||l.includes('costo') ? 'precio'
+      : l.includes('financ')||l.includes('crédito')||l.includes('pago') ? 'financiamiento'
+      : l.includes('cita')||l.includes('visita')||l.includes('ver') ? 'cita'
+      : 'default';
+    addMsg(replies[k], 'bot');
+  }, 1000);
+}
+function addMsg(text, type) {
+  const msgs = document.getElementById('chat-msgs');
+  const d = document.createElement('div');
+  d.className = 'chat-msg ' + type;
+  d.textContent = text;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+let typingEl = null;
+function showTyping() {
+  const msgs = document.getElementById('chat-msgs');
+  typingEl = document.createElement('div');
+  typingEl.className = 'chat-msg bot';
+  typingEl.innerHTML = '<div class="dots"><span></span><span></span><span></span></div>';
+  msgs.appendChild(typingEl);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function removeTyping() { if (typingEl) { typingEl.remove(); typingEl = null; } }
+</script>
+
+</body>
+</html>

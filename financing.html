@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financing — E&S Auto Paisano | Nashville, TN</title>
+<meta name="description" content="Aplica para financiamiento en E&S Auto Paisano. Buy Here Pay Here. Financiamos a todos sin importar tu crédito. Nashville, Tennessee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --y:  #F5C518;
+  --yd: #D4A800;
+  --bk: #0A0A0A;
+  --bk2:#111111;
+  --bk3:#1C1C1C;
+  --wh: #FFFFFF;
+  --gr: #888888;
+  --gl: #C0C0C0;
+  --br: rgba(255,255,255,0.08);
+  --r:  12px;
+  --rs: 8px;
+  --f-head: 'Bebas Neue', Impact, sans-serif;
+  --f-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:var(--f-body);background:var(--bk);color:var(--wh);overflow-x:hidden;line-height:1.5;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:var(--f-body);cursor:pointer;}
+input,select,textarea{font-family:var(--f-body);}
+
+/* ══════════════════════════
+   NAVBAR
+══════════════════════════ */
+.nav{
+  position:sticky;top:0;left:0;right:0;z-index:200;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.25rem;
+  background:rgba(10,10,10,0.98);
+  border-bottom:1px solid var(--br);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0;}
+.logo-circle{width:40px;height:40px;border-radius:50%;background:var(--y);border:2px solid #B8900A;display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:13px;color:#000;flex-shrink:0;letter-spacing:.5px;line-height:1;}
+.logo-text{display:flex;flex-direction:column;line-height:1.1;}
+.logo-text .t1{font-family:var(--f-head);font-size:16px;color:var(--wh);letter-spacing:1.5px;}
+.logo-text .t2{font-size:9px;color:var(--y);font-weight:600;letter-spacing:.3px;}
+.nav-links{display:none;list-style:none;align-items:center;gap:1.75rem;}
+.nav-links a{color:var(--gl);font-size:14px;font-weight:500;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--y);}
+.btn-call{display:flex;align-items:center;gap:6px;background:var(--y);color:#000;padding:9px 16px;border-radius:var(--rs);font-family:var(--f-head);font-size:15px;letter-spacing:1.5px;transition:all .2s;border:none;white-space:nowrap;flex-shrink:0;}
+.btn-call:hover{background:var(--yd);}
+.hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:8px;cursor:pointer;margin-left:6px;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--wh);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.nav-drawer{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,10,10,.99);border-bottom:1px solid var(--br);padding:1.25rem 1.5rem;z-index:199;flex-direction:column;gap:0;backdrop-filter:blur(14px);}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{color:var(--gl);font-size:16px;font-weight:500;padding:14px 0;border-bottom:1px solid var(--br);transition:color .2s;}
+.nav-drawer a:last-child{border-bottom:none;}
+.nav-drawer a:hover{color:var(--y);}
+
+/* ══════════════════════════
+   PAGE HERO
+══════════════════════════ */
+.page-hero{
+  background:linear-gradient(135deg,#0A0A0A 0%,#1a1200 50%,#0A0A0A 100%);
+  border-bottom:1px solid var(--br);
+  padding:3rem 1.5rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.page-hero::before{
+  content:'';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:500px;height:300px;
+  background:radial-gradient(ellipse,rgba(245,197,24,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.page-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,197,24,0.1);
+  border:1px solid rgba(245,197,24,0.3);
+  border-radius:100px;padding:5px 16px;
+  margin-bottom:1rem;
+}
+.page-hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--y);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+.page-hero-badge span{font-size:12px;font-weight:700;color:var(--y);letter-spacing:.5px;}
+
+.page-hero h1{
+  font-family:var(--f-head);
+  font-size:clamp(48px,8vw,80px);
+  color:var(--wh);
+  letter-spacing:2px;
+  line-height:.95;
+  margin-bottom:.75rem;
+}
+
+.page-hero h1 span{color:var(--y);}
+
+.page-hero p{
+  font-size:16px;color:var(--gl);
+  max-width:520px;margin:0 auto;
+  line-height:1.7;
+}
+
+/* ══════════════════════════
+   MAIN WRAP
+══════════════════════════ */
+.main-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:2.5rem 1.25rem 4rem;
+}
+
+/* ══════════════════════════
+   BENEFITS STRIP
+══════════════════════════ */
+.benefits-strip{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:2.5rem;
+}
+
+.benefit-card{
+  background:var(--bk2);
+  border:1px solid var(--br);
+  border-radius:var(--r);
+  padding:1.25rem;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.benefit-icon{
+  width:40px;height:40px;border-radius:var(--rs);
+  background:rgba(245,197,24,0.12);
+  border:1px solid rgba(245,197,24,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+
+.benefit-text h4{
+  font-family:var(--f-head);font-size:16px;letter-spacing:.5px;
+  color:var(--wh);margin-bottom:3px;
+}
+.benefit-text p{font-size:12px;color:var(--gr);line-height:1.5;}
+
+/* ══════════════════════════
+   SECTION TITLES
+══════════════════════════ */
+.section-title-wrap{margin-bottom:1.5rem;}
+.section-eyebrow{
+  font-size:11px;font-weight:700;color:var(--y);
+  letter-spacing:2px;margin-bottom:.5rem;
+}
+.section-title{
+  font-family:var(--f-head);
+  font-size:clamp(32px,5vw,44px);
+  color:var(--wh);letter-spacing:1.5px;line-height:1;
+}
+
+.section-divider{
+  height:1px;background:var(--br);
+  margin:2.5rem 0;
+}
+
+/* ══════════════════════════
+   PAYMENT CALCULATOR
+══════════════════════════ */
+.calc-wrap{
+  background:var(--bk2);
+  border:1px solid var(--br);
+  border-radius:var(--r);
+  overflow:hidden;
+  margin-bottom:2.5rem;
+}
+
+.calc-header{
+  background:var(--y);
+  padding:1.25rem 1.5rem;
+  display:flex;align-items:center;gap:12px;
+}
+.calc-header h3{
+  font-family:var(--f-head);font-size:24px;
+  letter-spacing:1.5px;color:#000;
+}
+.calc-header p{font-size:12px;color:rgba(0,0,0,.6);margin-top:2px;}
+
+.calc-body{padding:1.5rem;}
+
+.calc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.calc-field{display:flex;flex-direction:column;gap:6px;}
+.calc-label{
+  font-size:10px;font-weight:700;
+  color:var(--gr);letter-spacing:.8px;
+}
+.calc-input{
+  background:var(--bk3);
+  border:1px solid var(--br);
+  border-radius:var(--rs);
+  color:var(--wh);
+  padding:11px 14px;
+  font-family:var(--f-body);font-size:14px;
+  outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.calc-input:focus{border-color:var(--y);}
+.calc-input option{background:#1a1a1a;}
+
+/* Result bar */
+.calc-results{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.calc-result-card{
+  background:var(--bk3);
+  border:1px solid var(--br);
+  border-radius:var(--rs);
+  padding:1rem;
+  text-align:center;
+  transition:all .2s;
+}
+.calc-result-card.active{
+  background:rgba(245,197,24,.08);
+  border-color:rgba(245,197,24,.3);
+}
+.calc-result-freq-label{font-size:11px;color:var(--gr);font-weight:600;letter-spacing:.5px;margin-bottom:4px;}
+.calc-result-amount{
+  font-family:var(--f-head);
+  font-size:clamp(22px,3vw,30px);
+  color:var(--y);letter-spacing:.5px;line-height:1;
+}
+.calc-note{
+  font-size:11px;color:var(--gr);
+  text-align:center;margin-top:1rem;
+  line-height:1.6;
+}
+
+/* ══════════════════════════
+   APPLICATION FORM
+══════════════════════════ */
+.app-form{
+  background:var(--bk2);
+  border:1px solid var(--br);
+  border-radius:var(--r);
+  overflow:hidden;
+}
+
+.app-form-header{
+  background:var(--y);
+  padding:1.25rem 1.5rem;
+}
+.app-form-header h3{font-family:var(--f-head);font-size:24px;letter-spacing:1.5px;color:#000;}
+.app-form-header p{font-size:12px;color:rgba(0,0,0,.6);margin-top:2px;}
+
+.app-form-body{padding:1.5rem;}
+
+/* Form sections */
+.form-section{margin-bottom:2rem;}
+.form-section-title{
+  font-family:var(--f-head);font-size:18px;
+  letter-spacing:1.5px;color:var(--y);
+  margin-bottom:1rem;
+  padding-bottom:.5rem;
+  border-bottom:1px solid rgba(245,197,24,.2);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+.form-grid-3{grid-template-columns:1fr 1fr 1fr;}
+.form-full{grid-column:1/-1;}
+
+.form-field{display:flex;flex-direction:column;gap:6px;}
+
+.form-label{
+  font-size:11px;font-weight:700;
+  color:var(--gr);letter-spacing:.5px;
+}
+
+.form-label .req{color:var(--y);}
+
+.form-input{
+  background:var(--bk3);
+  border:1.5px solid var(--br);
+  border-radius:var(--rs);
+  color:var(--wh);
+  padding:11px 14px;
+  font-family:var(--f-body);font-size:14px;
+  outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+  width:100%;
+}
+.form-input:focus{border-color:var(--y);}
+.form-input::placeholder{color:rgba(255,255,255,.2);}
+.form-input option{background:#1a1a1a;}
+
+.form-input.error{border-color:#EF4444;}
+
+/* Radio group */
+.radio-group{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  padding-top:2px;
+}
+.radio-option{
+  display:flex;align-items:center;gap:8px;
+  cursor:pointer;font-size:14px;color:var(--gl);
+}
+.radio-option input{
+  accent-color:var(--y);
+  width:16px;height:16px;cursor:pointer;
+}
+
+/* Emergency contact row */
+.emergency-row{
+  background:var(--bk3);
+  border:1px solid var(--br);
+  border-radius:var(--rs);
+  padding:1rem;
+  margin-bottom:.75rem;
+}
+.emergency-row-title{
+  font-size:11px;font-weight:700;
+  color:var(--y);letter-spacing:.5px;
+  margin-bottom:.75rem;
+}
+.emergency-row-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:.75rem;
+}
+
+/* Disclaimer */
+.disclaimer{
+  background:rgba(245,197,24,.04);
+  border:1px solid rgba(245,197,24,.15);
+  border-radius:var(--rs);
+  padding:1.25rem;
+  font-size:12px;
+  color:var(--gr);
+  line-height:1.7;
+  margin-bottom:1.5rem;
+}
+.disclaimer strong{color:var(--gl);}
+
+/* Signature row */
+.signature-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+/* Submit button */
+.btn-submit{
+  width:100%;
+  background:var(--y);
+  color:#000;
+  border:none;
+  border-radius:var(--rs);
+  padding:16px;
+  font-family:var(--f-head);
+  font-size:22px;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:all .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.btn-submit:hover{background:var(--yd);transform:translateY(-2px);}
+.btn-submit:active{transform:translateY(0);}
+
+/* Success message */
+.success-msg{
+  display:none;
+  text-align:center;
+  padding:3rem 2rem;
+}
+.success-icon{font-size:56px;margin-bottom:1rem;}
+.success-title{font-family:var(--f-head);font-size:36px;letter-spacing:2px;color:var(--y);margin-bottom:.75rem;}
+.success-text{font-size:15px;color:var(--gl);line-height:1.7;}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer{
+  background:#050505;border-top:1px solid var(--br);
+  padding:1.25rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;
+}
+.footer-left{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;}
+.footer-left a,.footer-left span{font-size:11px;color:var(--gr);transition:color .2s;}
+.footer-left a:hover{color:var(--wh);}
+.powered{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--gr);}
+.powered a{color:var(--y);font-weight:600;font-size:11px;}
+.powered img{height:14px;vertical-align:middle;filter:brightness(.8);}
+
+/* ══════════════════════════
+   FLOATS
+══════════════════════════ */
+.floats{position:fixed;bottom:1.25rem;right:1.25rem;z-index:90;display:flex;flex-direction:column;gap:10px;align-items:flex-end;}
+.btn-fl{display:flex;align-items:center;gap:7px;padding:11px 16px;border-radius:100px;font-family:var(--f-head);font-size:14px;letter-spacing:1px;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.4);cursor:pointer;border:none;min-height:44px;-webkit-tap-highlight-color:transparent;}
+.fl-wa{background:#25D366;color:#fff;}
+.fl-wa:hover{transform:scale(1.06);}
+.fl-chat{background:var(--y);color:#000;}
+.fl-chat:hover{transform:scale(1.06);}
+
+/* ══════════════════════════
+   CHAT
+══════════════════════════ */
+.chat-widget{position:fixed;bottom:8rem;right:1.25rem;z-index:91;width:min(320px,calc(100vw - 2.5rem));background:var(--bk2);border:1px solid var(--br);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.7);display:none;flex-direction:column;overflow:hidden;}
+.chat-widget.open{display:flex;}
+.chat-hdr{background:var(--y);padding:12px 14px;display:flex;align-items:center;gap:10px;}
+.chat-av{width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.chat-hdr-info h4{font-family:var(--f-head);font-size:15px;letter-spacing:1px;color:#000;}
+.chat-hdr-info p{font-size:10px;color:rgba(0,0,0,.6);}
+.chat-x{margin-left:auto;background:none;border:none;color:rgba(0,0,0,.5);font-size:22px;cursor:pointer;line-height:1;padding:0;min-width:28px;min-height:28px;display:flex;align-items:center;justify-content:center;}
+.chat-msgs{padding:14px;min-height:130px;max-height:220px;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:10px;}
+.chat-msg{max-width:85%;padding:9px 12px;border-radius:12px;font-size:13px;line-height:1.5;}
+.chat-msg.bot{background:var(--bk3);color:var(--gl);align-self:flex-start;border-bottom-left-radius:3px;}
+.chat-msg.user{background:var(--y);color:#000;align-self:flex-end;font-weight:500;border-bottom-right-radius:3px;}
+.chat-row{padding:10px;border-top:1px solid var(--br);display:flex;gap:8px;}
+.chat-inp{flex:1;background:var(--bk3);border:1px solid var(--br);border-radius:var(--rs);color:var(--wh);padding:9px 12px;font-family:var(--f-body);font-size:14px;outline:none;transition:border-color .2s;min-height:40px;-webkit-appearance:none;}
+.chat-inp:focus{border-color:var(--y);}
+.chat-snd{background:var(--y);border:none;border-radius:var(--rs);width:40px;height:40px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chat-snd:hover{background:var(--yd);}
+.dots{display:flex;gap:4px;align-items:center;}
+.dots span{width:6px;height:6px;border-radius:50%;background:var(--gr);animation:bnc 1.2s infinite;}
+.dots span:nth-child(2){animation-delay:.2s;}
+.dots span:nth-child(3){animation-delay:.4s;}
+@keyframes bnc{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media(min-width:768px){
+  .nav{padding:0 2rem;height:64px;}
+  .nav-links{display:flex;}
+  .hamburger{display:none;}
+  .benefits-strip{grid-template-columns:repeat(4,1fr);}
+  .main-wrap{padding:3rem 2rem 5rem;}
+}
+
+@media(max-width:600px){
+  .calc-grid{grid-template-columns:1fr;}
+  .calc-results{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .form-grid-3{grid-template-columns:1fr;}
+  .signature-row{grid-template-columns:1fr;}
+  .emergency-row-grid{grid-template-columns:1fr;}
+  .floats{bottom:1rem;right:1rem;}
+  .btn-fl .fl-label{display:none;}
+  .btn-fl{padding:12px;border-radius:50%;width:48px;height:48px;}
+}
+
+@media(min-width:601px) and (max-width:767px){
+  .form-grid-3{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <div class="logo-circle">E&S</div>
+    <div class="logo-text">
+      <span class="t1">AUTO PAISANO</span>
+      <span class="t2">Nashville, Tennessee</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/inventario.html">Inventory</a></li>
+    <li><a href="/#contact">Contact Us</a></li>
+    <li><a href="/financing.html" class="active">Financing</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="tel:6152557700" class="btn-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      CALL NOW
+    </a>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="/" onclick="closeNav()">Home</a>
+  <a href="/inventario.html" onclick="closeNav()">Inventory</a>
+  <a href="/#contact" onclick="closeNav()">Contact Us</a>
+  <a href="/financing.html" onclick="closeNav()">Financing</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero">
+  <div class="page-hero-badge">
+    <div class="page-hero-badge-dot"></div>
+    <span>BUY HERE PAY HERE · NASHVILLE, TN</span>
+  </div>
+  <h1>We Finance<br><span>Everyone.</span></h1>
+  <p>No credit needed. No problem. Aplica hoy y maneja hoy mismo. Hablamos español.</p>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="main-wrap">
+
+  <!-- Benefits -->
+  <div class="benefits-strip">
+    <div class="benefit-card">
+      <div class="benefit-icon">✅</div>
+      <div class="benefit-text">
+        <h4>No Credit Needed</h4>
+        <p>Financiamos sin importar tu historial crediticio</p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-text">
+        <h4>Aprobación Rápida</h4>
+        <p>Respuesta el mismo día de tu aplicación</p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💵</div>
+      <div class="benefit-text">
+        <h4>Pagos Flexibles</h4>
+        <p>Semanal, quincenal o mensual según te convenga</p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🛡️</div>
+      <div class="benefit-text">
+        <h4>6 Meses Garantía</h4>
+        <p>Todos nuestros vehículos incluyen garantía</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAYMENT CALCULATOR ═══ -->
+  <div class="section-title-wrap">
+    <div class="section-eyebrow">HERRAMIENTA</div>
+    <div class="section-title">Calcula tu Pago</div>
+  </div>
+
+  <div class="calc-wrap">
+    <div class="calc-header">
+      <div>
+        <h3>💰 Calculadora de Pagos</h3>
+        <p>Ingresa el precio del carro que quieres y ve cuánto pagarías</p>
+      </div>
+    </div>
+    <div class="calc-body">
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label class="calc-label">PRECIO DEL VEHÍCULO</label>
+          <input type="number" class="calc-input" id="calc-price" placeholder="Ej: 12000" value="12000" oninput="calcPayment()">
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">ENGANCHE (DOWN PAYMENT)</label>
+          <input type="number" class="calc-input" id="calc-down" placeholder="Ej: 1000" value="1000" oninput="calcPayment()">
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">PLAZO DE FINANCIAMIENTO</label>
+          <select class="calc-input" id="calc-term" onchange="calcPayment()">
+            <option value="12">12 meses (1 año)</option>
+            <option value="24" selected>24 meses (2 años)</option>
+            <option value="36">36 meses (3 años)</option>
+            <option value="48">48 meses (4 años)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">TASA DE INTERÉS ESTIMADA</label>
+          <select class="calc-input" id="calc-rate" onchange="calcPayment()">
+            <option value="0.15">15% anual</option>
+            <option value="0.18" selected>18% anual (promedio BHPH)</option>
+            <option value="0.21">21% anual</option>
+            <option value="0.24">24% anual</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result-card">
+          <div class="calc-result-freq-label">SEMANAL</div>
+          <div class="calc-result-amount" id="result-weekly">$0</div>
+        </div>
+        <div class="calc-result-card active">
+          <div class="calc-result-freq-label">QUINCENAL</div>
+          <div class="calc-result-amount" id="result-biweekly">$0</div>
+        </div>
+        <div class="calc-result-card">
+          <div class="calc-result-freq-label">MENSUAL</div>
+          <div class="calc-result-amount" id="result-monthly">$0</div>
+        </div>
+      </div>
+
+      <p class="calc-note">
+        * Estimación aproximada. La tasa y el plazo final dependen de tu aprobación. <br>
+        Enganche mínimo desde $500. Los pagos no incluyen tax, tag ni title.
+      </p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ APPLICATION FORM ═══ -->
+  <div class="section-title-wrap">
+    <div class="section-eyebrow">PASO 1 DE 1</div>
+    <div class="section-title">Aplicación de Financiamiento</div>
+  </div>
+
+  <div class="app-form" id="app-form">
+    <div class="app-form-header">
+      <h3>Customer Information Statement</h3>
+      <p>Esta aplicación debe completarse en su totalidad para ser revisada · This application must be fully completed to get reviewed for approval</p>
+    </div>
+
+    <div class="app-form-body" id="form-body">
+
+      <!-- ── PERSONAL INFO ── -->
+      <div class="form-section">
+        <div class="form-section-title">Personal Information</div>
+        <div class="form-grid">
+          <div class="form-field form-full">
+            <label class="form-label">FULL NAME / NOMBRE COMPLETO <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-name" placeholder="John Doe" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">DATE OF BIRTH / FECHA DE NACIMIENTO <span class="req">*</span></label>
+            <input type="date" class="form-input" id="f-dob" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">LICENSE NUMBER / NÚMERO DE LICENCIA <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-license" placeholder="DL1234567">
+          </div>
+          <div class="form-field">
+            <label class="form-label">PHONE NUMBER / TELÉFONO <span class="req">*</span></label>
+            <input type="tel" class="form-input" id="f-phone" placeholder="(615) 555-1234" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">LAST 4 OF SSN / ÚLTIMOS 4 DEL SSN</label>
+            <input type="text" class="form-input" id="f-ssn" placeholder="****" maxlength="4" pattern="[0-9]{4}">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ADDRESS ── -->
+      <div class="form-section">
+        <div class="form-section-title">Address / Dirección</div>
+        <div class="form-grid">
+          <div class="form-field form-full">
+            <label class="form-label">ADDRESS / DIRECCIÓN <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-address" placeholder="2115 Nolensville Pike" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">CITY / CIUDAD <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-city" placeholder="Nashville" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">STATE / ESTADO <span class="req">*</span></label>
+            <select class="form-input" id="f-state" required>
+              <option value="">Select state</option>
+              <option value="TN" selected>Tennessee</option>
+              <option value="AL">Alabama</option>
+              <option value="GA">Georgia</option>
+              <option value="KY">Kentucky</option>
+              <option value="TX">Texas</option>
+              <option value="FL">Florida</option>
+              <option value="IL">Illinois</option>
+              <option value="CA">California</option>
+              <option value="NC">North Carolina</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">ZIP CODE / CÓDIGO POSTAL <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-zip" placeholder="37211" maxlength="5" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">HOW LONG AT THIS ADDRESS / CUÁNTO TIEMPO EN ESTA DIRECCIÓN</label>
+            <input type="text" class="form-input" id="f-howlong" placeholder="Ej: 2 años">
+          </div>
+          <div class="form-field">
+            <label class="form-label">DO YOU OWN OR RENT? / ¿CASA PROPIA O RENTA?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="own-rent" value="own"> Own / Propia</label>
+              <label class="radio-option"><input type="radio" name="own-rent" value="rent" checked> Rent / Renta</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PARTNER ── -->
+      <div class="form-section">
+        <div class="form-section-title">Partner / Pareja (Optional)</div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">NAME OF YOUR PARTNER / NOMBRE DE SU PAREJA</label>
+            <input type="text" class="form-input" id="f-partner-name" placeholder="Jane Doe">
+          </div>
+          <div class="form-field">
+            <label class="form-label">HIS/HER PHONE NUMBER / SU TELÉFONO</label>
+            <input type="tel" class="form-input" id="f-partner-phone" placeholder="(615) 555-5678">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── JOB INFO ── -->
+      <div class="form-section">
+        <div class="form-section-title">Job Information / Información de Empleo</div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">EMPLOYER / EMPLEADOR <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-employer" placeholder="Company Name" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">EMPLOYER PHONE / TELÉFONO DEL EMPLEADOR</label>
+            <input type="tel" class="form-input" id="f-employer-phone" placeholder="(615) 555-0000">
+          </div>
+          <div class="form-field">
+            <label class="form-label">OCCUPATION / OCUPACIÓN <span class="req">*</span></label>
+            <input type="text" class="form-input" id="f-occupation" placeholder="Ej: Construction Worker" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">WEEKLY INCOME / INGRESO SEMANAL <span class="req">*</span></label>
+            <input type="number" class="form-input" id="f-income" placeholder="Ej: 800" required>
+          </div>
+          <div class="form-field form-full">
+            <label class="form-label">APPROX. MILES DRIVEN PER MONTH / MILLAS APROXIMADAS POR MES</label>
+            <input type="number" class="form-input" id="f-miles" placeholder="Ej: 1200">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PREVIOUS CAR ── -->
+      <div class="form-section">
+        <div class="form-section-title">Previous Vehicle / Vehículo Anterior</div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">HAVE YOU BOUGHT A CAR BEFORE? / ¿HA COMPRADO UN CARRO ANTES?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="prev-car" value="yes" id="prev-yes" onchange="togglePrevCar(true)"> Yes / Sí</label>
+              <label class="radio-option"><input type="radio" name="prev-car" value="no" checked onchange="togglePrevCar(false)"> No</label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label">YEAR OF PURCHASE / AÑO DE COMPRA</label>
+            <input type="number" class="form-input" id="f-prev-year" placeholder="Ej: 2020" min="1990" max="2025" disabled style="opacity:.4">
+          </div>
+          <div class="form-field">
+            <label class="form-label">DEALER'S NAME / NOMBRE DEL DEALER</label>
+            <input type="text" class="form-input" id="f-prev-dealer" placeholder="Dealer Name" disabled style="opacity:.4">
+          </div>
+          <div class="form-field">
+            <label class="form-label">PAID OFF? / ¿TERMINÓ DE PAGAR?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="paid-off" value="yes" disabled> Yes / Sí</label>
+              <label class="radio-option"><input type="radio" name="paid-off" value="no" disabled> No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── EMERGENCY CONTACTS ── -->
+      <div class="form-section">
+        <div class="form-section-title">Emergency Contacts / Contactos de Emergencia</div>
+
+        <div class="emergency-row">
+          <div class="emergency-row-title">CONTACT 1 <span class="req">*</span></div>
+          <div class="emergency-row-grid">
+            <div class="form-field">
+              <label class="form-label">NAME / NOMBRE</label>
+              <input type="text" class="form-input" id="ec1-name" placeholder="Full Name" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">PHONE / TELÉFONO</label>
+              <input type="tel" class="form-input" id="ec1-phone" placeholder="(615) 555-0000" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">RELATIONSHIP / PARENTESCO</label>
+              <select class="form-input" id="ec1-rel">
+                <option value="">Select</option>
+                <option>Parent / Padre/Madre</option>
+                <option>Sibling / Hermano/a</option>
+                <option>Spouse / Cónyuge</option>
+                <option>Friend / Amigo/a</option>
+                <option>Other / Otro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="emergency-row">
+          <div class="emergency-row-title">CONTACT 2</div>
+          <div class="emergency-row-grid">
+            <div class="form-field">
+              <label class="form-label">NAME / NOMBRE</label>
+              <input type="text" class="form-input" id="ec2-name" placeholder="Full Name">
+            </div>
+            <div class="form-field">
+              <label class="form-label">PHONE / TELÉFONO</label>
+              <input type="tel" class="form-input" id="ec2-phone" placeholder="(615) 555-0000">
+            </div>
+            <div class="form-field">
+              <label class="form-label">RELATIONSHIP / PARENTESCO</label>
+              <select class="form-input" id="ec2-rel">
+                <option value="">Select</option>
+                <option>Parent / Padre/Madre</option>
+                <option>Sibling / Hermano/a</option>
+                <option>Spouse / Cónyuge</option>
+                <option>Friend / Amigo/a</option>
+                <option>Other / Otro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="emergency-row">
+          <div class="emergency-row-title">CONTACT 3</div>
+          <div class="emergency-row-grid">
+            <div class="form-field">
+              <label class="form-label">NAME / NOMBRE</label>
+              <input type="text" class="form-input" id="ec3-name" placeholder="Full Name">
+            </div>
+            <div class="form-field">
+              <label class="form-label">PHONE / TELÉFONO</label>
+              <input type="tel" class="form-input" id="ec3-phone" placeholder="(615) 555-0000">
+            </div>
+            <div class="form-field">
+              <label class="form-label">RELATIONSHIP / PARENTESCO</label>
+              <select class="form-input" id="ec3-rel">
+                <option value="">Select</option>
+                <option>Parent / Padre/Madre</option>
+                <option>Sibling / Hermano/a</option>
+                <option>Spouse / Cónyuge</option>
+                <option>Friend / Amigo/a</option>
+                <option>Other / Otro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DISCLAIMER ── -->
+      <div class="disclaimer">
+        <strong>I CERTIFY THE TRUTH AND ACCURACY OF THE FOREGOING AND THAT I AM AT LEAST 18 YEARS OF AGE.</strong>
+        You are authorized to investigate my credit report and employment history and to release information about your credit experience with me.
+        I also agree I will not remove this vehicle from this state to another state without the dealer's written permission.<br><br>
+        <strong>CERTIFICO LA VERACIDAD Y EXACTITUD DE LO ANTERIOR Y QUE TENGO AL MENOS 18 AÑOS DE EDAD.</strong>
+        Usted está autorizado a investigar mi historial crediticio y de empleo. También acepto que no sacaré este vehículo del estado sin el permiso escrito del dealer.
+      </div>
+
+      <!-- ── SIGNATURE ── -->
+      <div class="signature-row">
+        <div class="form-field">
+          <label class="form-label">APPLICANT SIGNATURE / FIRMA DEL APLICANTE <span class="req">*</span></label>
+          <input type="text" class="form-input" id="f-signature" placeholder="Type your full name as signature" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label">DATE / FECHA <span class="req">*</span></label>
+          <input type="date" class="form-input" id="f-date" required>
+        </div>
+      </div>
+
+      <button class="btn-submit" onclick="submitForm()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Submit Application / Enviar Aplicación
+      </button>
+
+    </div><!-- end form-body -->
+
+    <!-- Success state -->
+    <div class="success-msg" id="success-msg">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">¡Aplicación Recibida!</div>
+      <p class="success-text">
+        Gracias por aplicar con E&S Auto Paisano.<br>
+        Un miembro de nuestro equipo te contactará pronto.<br><br>
+        <strong style="color:var(--y)">📞 (615) 255-7700</strong><br>
+        2115 Nolensville Pike, Nashville, TN 37211
+      </p>
+    </div>
+
+  </div><!-- end app-form -->
+
+</div><!-- end main-wrap -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-left">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Term of Use</a>
+    <span>© 2025 All rights reserved</span>
+  </div>
+  <div class="powered">
+    Powered by
+    <a href="https://cardealerflow.com" target="_blank">
+      <img src="images/cdf-logo.png" alt="CardealerFlow.com">
+    </a>
+  </div>
+</footer>
+
+<!-- ══ FLOATS ══ -->
+<div class="floats">
+  <a href="https://wa.me/16152557700?text=Hola!%20Quiero%20aplicar%20para%20financiamiento." target="_blank" class="btn-fl fl-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span class="fl-label">WhatsApp</span>
+  </a>
+  <button class="btn-fl fl-chat" onclick="toggleChat()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="fl-label">Chat</span>
+  </button>
+</div>
+
+<!-- ══ CHAT ══ -->
+<div class="chat-widget" id="chat-widget">
+  <div class="chat-hdr">
+    <div class="chat-av">🤖</div>
+    <div class="chat-hdr-info">
+      <h4>Asistente Auto Paisano</h4>
+      <p>Responde en segundos · Hablamos español</p>
+    </div>
+    <button class="chat-x" onclick="toggleChat()" aria-label="Cerrar">×</button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs">
+    <div class="chat-msg bot">¡Hola! 👋 ¿Tienes preguntas sobre el financiamiento? Con gusto te ayudo.</div>
+  </div>
+  <div class="chat-row">
+    <input type="text" class="chat-inp" id="chat-inp" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-snd" onclick="sendChat()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ══ CALCULATOR ══ */
+function calcPayment() {
+  const price = parseFloat(document.getElementById('calc-price').value) || 0;
+  const down  = parseFloat(document.getElementById('calc-down').value)  || 0;
+  const term  = parseInt(document.getElementById('calc-term').value)    || 24;
+  const rate  = parseFloat(document.getElementById('calc-rate').value)  || 0.18;
+
+  const monthly_rate = rate / 12;
+  const principal    = Math.max(0, price - down);
+
+  let monthly = 0;
+  if (principal > 0 && monthly_rate > 0) {
+    monthly = principal * monthly_rate * Math.pow(1+monthly_rate,term) / (Math.pow(1+monthly_rate,term)-1);
+  }
+
+  const weekly    = monthly * 12 / 52;
+  const biweekly  = monthly * 12 / 26;
+
+  document.getElementById('result-weekly').textContent    = '$' + Math.round(weekly).toLocaleString();
+  document.getElementById('result-biweekly').textContent  = '$' + Math.round(biweekly).toLocaleString();
+  document.getElementById('result-monthly').textContent   = '$' + Math.round(monthly).toLocaleString();
+}
+
+calcPayment();
+
+/* ══ PREVIOUS CAR TOGGLE ══ */
+function togglePrevCar(enabled) {
+  ['f-prev-year','f-prev-dealer'].forEach(id => {
+    const el = document.getElementById(id);
+    el.disabled = !enabled;
+    el.style.opacity = enabled ? '1' : '.4';
+  });
+  document.querySelectorAll('input[name="paid-off"]').forEach(r => {
+    r.disabled = !enabled;
+  });
+}
+
+/* ══ FORM SUBMIT ══ */
+function submitForm() {
+  const required = ['f-name','f-dob','f-phone','f-address','f-city','f-state','f-zip','f-employer','f-occupation','f-income','f-signature','f-date','ec1-name','ec1-phone'];
+  let valid = true;
+
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!el.value.trim()) {
+      el.classList.add('error');
+      valid = false;
+    } else {
+      el.classList.remove('error');
+    }
+  });
+
+  if (!valid) {
+    alert('Por favor completa todos los campos requeridos (marcados con *).\nPlease fill all required fields (marked with *).');
+    const firstError = document.querySelector('.form-input.error');
+    if (firstError) firstError.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+
+  /* Show success */
+  document.getElementById('form-body').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+  window.scrollTo({ top: document.getElementById('app-form').offsetTop - 80, behavior:'smooth' });
+}
+
+/* ══ NAV ══ */
+function toggleNav() {
+  const drawer = document.getElementById('nav-drawer');
+  const burger = document.getElementById('hamburger');
+  const open = drawer.classList.toggle('open');
+  burger.classList.toggle('open', open);
+}
+function closeNav() {
+  document.getElementById('nav-drawer').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+/* ══ CHAT ══ */
+let chatOpen = false;
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chat-widget').classList.toggle('open', chatOpen);
+}
+
+const replies = {
+  enganche:      '¡El enganche mínimo es desde $500! Dependiendo del vehículo y tu situación.',
+  financiamiento:'Somos Buy Here Pay Here — financiamos sin importar el crédito. Solo necesitas comprobar ingresos.',
+  aprobacion:    '¡Generalmente el mismo día! Llena la aplicación y te contactamos muy rápido.',
+  rebuilt:       'Sí, financiamos carros rebuilt title. Son legales y mucho más económicos.',
+  requisitos:    'Solo necesitas: identificación, comprobante de ingresos y enganche. ¡Sin crédito necesario!',
+  default:       '¡Gracias! Puedes llamarnos al (615) 255-7700 o mandarnos WhatsApp para una respuesta más rápida.',
+};
+
+function sendChat() {
+  const inp = document.getElementById('chat-inp');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  addMsg(msg, 'user'); inp.value = '';
+  showTyping();
+  setTimeout(() => {
+    removeTyping();
+    const l = msg.toLowerCase();
+    const k = l.includes('enganche')||l.includes('down')               ? 'enganche'
+      : l.includes('financ')||l.includes('crédito')||l.includes('pago') ? 'financiamiento'
+      : l.includes('aprobac')||l.includes('cuánto tarda')               ? 'aprobacion'
+      : l.includes('rebuilt')||l.includes('título')                     ? 'rebuilt'
+      : l.includes('requisit')||l.includes('necesito')||l.includes('documento') ? 'requisitos'
+      : 'default';
+    addMsg(replies[k], 'bot');
+  }, 1000);
+}
+
+function addMsg(text, type) {
+  const msgs = document.getElementById('chat-msgs');
+  const d = document.createElement('div');
+  d.className = 'chat-msg ' + type;
+  d.textContent = text;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+let typingEl = null;
+function showTyping() {
+  const msgs = document.getElementById('chat-msgs');
+  typingEl = document.createElement('div');
+  typingEl.className = 'chat-msg bot';
+  typingEl.innerHTML = '<div class="dots"><span></span><span></span><span></span></div>';
+  msgs.appendChild(typingEl);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function removeTyping() { if (typingEl) { typingEl.remove(); typingEl = null; } }
+
+/* Auto-fill today's date */
+document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+</script>
+
+</body>
+</html>
